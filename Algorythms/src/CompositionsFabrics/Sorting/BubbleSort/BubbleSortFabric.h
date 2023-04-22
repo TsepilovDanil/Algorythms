@@ -14,15 +14,17 @@ public:
 	BubbleSortFabric() = default;
 	~BubbleSortFabric() = default;
 
-	std::shared_ptr<Composition> GetComposition() override;
+	std::shared_ptr<Composition<Type, Count>> GetComposition() override;
 
 };
 
-template<typename ProcessinElementType, std::size_t ElementCount>
-std::shared_ptr<Composition> BubbleSortFabric<ProcessinElementType, ElementCount>::GetComposition()
+template<typename Type, std::size_t Count>
+std::shared_ptr<Composition<Type, Count>> BubbleSortFabric<Type, Count>::GetComposition()
 {
-	auto strategy = std::make_shared<BubbleSortStrategy>();
+	auto strategy = std::make_shared<BubbleSortStrategy<Type, Count>>();
 
-	return std::make_shared<BubbelSortComposition>(strategy);
+	auto composition = std::make_shared<BubbelSortComposition<Type, Count>>(strategy);
+
+	return composition;
 }
 

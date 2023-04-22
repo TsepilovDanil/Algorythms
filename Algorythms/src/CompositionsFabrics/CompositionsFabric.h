@@ -2,14 +2,14 @@
 #include <iostream>
 #include "../compositions/Composition.h"
 
-template<typename ProcessinElementType, std::size_t ElementCount>
+template<typename Type, std::size_t Count>
 class CompositionsFabric
 {
 public:
 	CompositionsFabric() = default;
 	virtual ~CompositionsFabric() = default;
 
-	virtual std::shared_ptr<Composition> GetComposition() { return nullptr; };
+	virtual std::shared_ptr<Composition<Type, Count>> GetComposition() { return nullptr; };
 
 	
 	virtual void StartAlgorythm(void*) {};
