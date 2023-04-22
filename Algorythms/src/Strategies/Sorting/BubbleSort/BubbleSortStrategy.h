@@ -10,6 +10,8 @@ public:
 	BubbleSortStrategy(Composition* composition) : Strategy(composition) { std::cout << "BubbleSortStrategy" << std::endl; };
 	~BubbleSortStrategy() = default;
 
+	void StartWork(void* storageType, const std::size_t size) {};
+
 private:
 
 	void algorythm(void*);

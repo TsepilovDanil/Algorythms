@@ -1,10 +1,10 @@
 #include "Strategy.h"
 #include <thread>
 
-void Strategy::algorythm(void* parameters)
+/*void Strategy::algorythm(void* parameters)
 {
 
-}
+}*/
 
 /*template<typename T, std::size_t S>
 bool Strategy<T, S>::StartWork()
