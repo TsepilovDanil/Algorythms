@@ -17,7 +17,9 @@ int main()
 
     std::shared_ptr<CompositionsFabric<int, 10>> bubbleSortFabric = std::make_shared<BubbleSortFabric<int, 10>>();
 
-    //auto composition = bubbleSortFabric->GetComposition();
+    auto composition = bubbleSortFabric->GetComposition();
+
+    composition->_Strategy->StartWork();
 
 }
 
