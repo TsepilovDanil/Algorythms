@@ -14,10 +14,7 @@ public:
 	Composition(std::shared_ptr<Strategy<Type, Count>> strategy) : _Strategy(strategy) {};
 	virtual ~Composition() = default;
 
-	//std::array<T, S> _WorkingArray;
-
 	std::shared_ptr<Strategy<Type, Count>> _Strategy;
-
 
 };
 

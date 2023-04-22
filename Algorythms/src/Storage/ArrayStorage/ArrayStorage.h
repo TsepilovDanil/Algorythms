@@ -14,8 +14,6 @@ public:
     ArrayStorage() = default;
     ~ArrayStorage() = default;
 
-    void func() override {};
-
     std::array<T, S> _Array;
 };
 
