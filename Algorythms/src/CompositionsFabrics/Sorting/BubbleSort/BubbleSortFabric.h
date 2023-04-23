@@ -3,8 +3,8 @@
 #include <memory>
 #include "../../CompositionsFabric.h"
 #include "../../../Compositions/Sorting/BubbleSort/BubbleSortComposition.h"
-#include "../../../Strategies/Sorting/BubbleSort/BubbleSortStrategy.h"
-#include "../../../Storage/ArrayStorage/ArrayStorage.h"
+#include "../../../AlgorythmsStrategies/Sorting/BubbleSort/BubbleSortStrategy.h"
+#include "../../../DataSources/ArraySource/ArraySource.h"
 
 template<typename Type, std::size_t Count>
 class  BubbleSortFabric : public CompositionsFabric<Type, Count>

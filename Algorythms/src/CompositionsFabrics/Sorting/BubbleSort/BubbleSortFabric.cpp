@@ -1,4 +1,4 @@
 #include "BubbleSortFabric.h"
-#include "../../../Strategies/Sorting/BubbleSort/BubbleSortStrategy.h"
+#include "../../../AlgorythmsStrategies/Sorting/BubbleSort/BubbleSortStrategy.h"
 
 

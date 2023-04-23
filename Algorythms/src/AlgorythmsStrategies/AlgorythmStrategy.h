@@ -3,17 +3,17 @@
 #include <iostream>
 #include <thread>
 #include "../compositions/Composition.h"
-#include "../Storage/ArrayStorage/ArrayStorage.h"
+#include "../DataSources/ArraySource/ArraySource.h"
 
 template<typename Type, std::size_t Count> class Composition;
 
 template<typename Type, std::size_t Count>
-class Strategy
+class AlgorythmStrategy
 {
 public:
 
-	Strategy() = default;
-	virtual ~Strategy() = default;
+	AlgorythmStrategy() = default;
+	virtual ~AlgorythmStrategy() = default;
 
 	virtual void StartWork();
 
@@ -26,9 +26,9 @@ private:
 };
 
 template<typename Type, std::size_t Count>
-void Strategy<Type, Count>::StartWork()
+void AlgorythmStrategy<Type, Count>::StartWork()
 {
-	auto strategyThread = std::thread(&Strategy::algorythm, this);
+	auto strategyThread = std::thread(&AlgorythmStrategy::algorythm, this);
 	strategyThread.join();
 }
 
