@@ -21,8 +21,9 @@ public:
 template<typename Type, std::size_t Count>
 std::shared_ptr<Composition<Type, Count>> BubbleSortFabric<Type, Count>::GetComposition()
 {
-	auto bubbleStrategy = std::make_shared<BubbleSortStrategy<Type, Count>>();
-	auto composition = std::make_shared<BubbelSortComposition<Type, Count>>(bubbleStrategy);
-	return composition;
+	auto aDataSource = std::make_shared<ArraySource<Type, Count>>();
+	auto aBubbleStrategy = std::make_shared<BubbleSortStrategy<Type, Count>>();
+	auto aComposition = std::make_shared<BubbelSortComposition<Type, Count>>(aBubbleStrategy, aDataSource);
+	return aComposition;
 }
 

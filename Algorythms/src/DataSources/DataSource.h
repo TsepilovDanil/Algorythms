@@ -1,15 +1,13 @@
 #pragma once
 #include <cstddef>
-#include "ArraySource/ArraySource.h"
 
-
-template <typename T, const std::size_t S> class DataSource
+template <typename Type, const std::size_t Count> class DataSource
 {
 public:
 
 	DataSource() = default;
 	~DataSource() = default;
 
-	virtual int operator[] (std::size_t index) { return 1; }
+	virtual const Type * const operator[] (const std::size_t index) { return nullptr; }
 };
 
