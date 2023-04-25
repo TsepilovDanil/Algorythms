@@ -1,5 +1,4 @@
 #pragma once
-
 #include <iostream>
 #include <thread>
 #include "../compositions/Composition.h"
@@ -22,7 +21,7 @@ private:
 
 protected:
 
-	std::shared_ptr<Composition<Type, Count>> _aComposition;
+	std::shared_ptr<Composition<Type, Count>> _composition;
 	
 };
 

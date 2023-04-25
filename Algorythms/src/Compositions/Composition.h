@@ -2,24 +2,31 @@
 
 #include <array>
 #include <memory>
-#include "../DataSources/DataSource.h"
+#include "../DataSources/DataSourceSingleton.h"
 #include "../AlgorythmsStrategies/AlgorythmStrategy.h"
 
 template<typename Type, std::size_t Count> class AlgorythmStrategy;
-template<typename Type, std::size_t Count> class DataSource;
+template<typename Type, std::size_t Count> class DataSourceSingleton;
 
 template<typename Type, std::size_t Count>
 class Composition
 {
 public:
-	Composition() : _aStrategy(nullptr) {};
-	Composition(std::shared_ptr<AlgorythmStrategy<Type, Count>> aStrategy, std::shared_ptr<DataSource<Type, Count>> aDataSource) : _aStrategy(aStrategy), _aDataSource(aDataSource) {};
+	Composition() : _strategy(nullptr) {};
+	Composition(std::shared_ptr<AlgorythmStrategy<Type, Count>> strategy, std::shared_ptr<DataSourceSingleton<Type, Count>> dataSource) : _strategy(strategy), _dataSource(dataSource) {};
 	virtual ~Composition() = default;
 
-	std::shared_ptr<AlgorythmStrategy<Type, Count>> _aStrategy;
+	std::shared_ptr<AlgorythmStrategy<Type, Count>> _strategy;
 
-	std::shared_ptr<DataSource<Type, Count>> _aDataSource;
+	std::shared_ptr<DataSourceSingleton<Type, Count>> _dataSource;
+
+	void StartAlgorythm();
 
 };
 
-
+template<typename Type, std::size_t Count>
+void Composition<Type, Count>::StartAlgorythm()
+{
+	if(Composition<Type, Count>::_strategy)
+		Composition<Type, Count>::_strategy->StartWork();
+}

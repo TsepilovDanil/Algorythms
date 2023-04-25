@@ -1,16 +1,12 @@
-﻿
-#include <iostream>
+﻿#include <iostream>
 #include <memory>
 #include "CompositionsFabrics/CompositionsFabric.h"
 #include "CompositionsFabrics/Sorting/BubbleSort/BubbleSortFabric.h"
-
 #include "Compositions/Composition.h"
 #include "Compositions/Sorting/BubbleSort/BubbleSortComposition.h"
-#include "DataSources/DataSource.h"
-#include "DataSources/ArraySource/ArraySource.h"
 
-template<typename ProcessinElementType, std::size_t ElementCount> class CompositionsFabric;
-template<typename ProcessinElementType, std::size_t ElementCount> class BubbleSortFabric;
+typedef int DataSourceType;
+#define DataSourceSize 10
 
 int main()
 {
@@ -18,11 +14,11 @@ int main()
     //std::cout << "uvar = " << var << std::endl;
     //std::cout << "var = " << var << std::endl;
 
-    std::shared_ptr<CompositionsFabric<int, 10>> bubbleSortFabric = std::make_shared<BubbleSortFabric<int, 10>>();
+    ArraySourceSingleton<int, 10>::Instance();
 
+    std::shared_ptr<CompositionsFabric<DataSourceType, DataSourceSize>> bubbleSortFabric = std::make_shared<BubbleSortFabric<DataSourceType, DataSourceSize>>();
     auto composition = bubbleSortFabric->GetComposition();
-
-    composition->_aStrategy->StartWork();
+    composition->StartAlgorythm();
 
 }
 

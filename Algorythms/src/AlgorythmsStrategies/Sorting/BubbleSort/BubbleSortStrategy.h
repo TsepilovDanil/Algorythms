@@ -17,19 +17,19 @@ public:
 
 private:
 	
-	void algorythm(std::shared_ptr<Composition<Type, Count>> aComposition);
+	void algorythm(std::shared_ptr<Composition<Type, Count>> composition);
 
 };
 
 template<typename Type, std::size_t Count>
 void BubbleSortStrategy<Type, Count>::StartWork()
 {
-	auto strategyThread = std::thread(&BubbleSortStrategy::algorythm, this, AlgorythmStrategy<Type, Count>::_aComposition);
+	auto strategyThread = std::thread(&BubbleSortStrategy::algorythm, this, AlgorythmStrategy<Type, Count>::_composition);
 	strategyThread.join();
 }
 
 template<typename Type, std::size_t Count>
-void BubbleSortStrategy<Type, Count>::algorythm(std::shared_ptr<Composition<Type, Count>> aComposition)
+void BubbleSortStrategy<Type, Count>::algorythm(std::shared_ptr<Composition<Type, Count>> composition)
 {
 	std::cout << "BubbleSortStrategy algorythm" << std::endl;
 }

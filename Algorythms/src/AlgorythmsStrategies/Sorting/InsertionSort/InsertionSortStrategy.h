@@ -1,20 +1,33 @@
 #pragma once
-#include "../../Strategy.h"
+#include "../../AlgorythmStrategy.h"
 #include "../../../compositions/Composition.h"
-#include "../../../compositions/sorting/insertion sort/InsertionSortComposition.h"
 
-class InsertionSortStrategy : public Strategy
+template<typename Type, std::size_t Count>
+class InsertionSortStrategy : public AlgorythmStrategy<Type, Count>
 {
 public:
+
 	InsertionSortStrategy() = default;
-	InsertionSortStrategy(Composition* composition) : Strategy(composition) { std::cout << "InsertionSortStrategy" << std::endl; }
 	~InsertionSortStrategy() = default;
 
+	void StartWork() override;
+
 private:
-	
-	void algorythm(void*);
+
+	void algorythm(std::shared_ptr<Composition<Type, Count>> composition);
 
 };
 
+template<typename Type, std::size_t Count>
+void InsertionSortStrategy<Type, Count>::StartWork()
+{
+	auto strategyThread = std::thread(&InsertionSortStrategy::algorythm, this, AlgorythmStrategy<Type, Count>::_composition);
+	strategyThread.join();
+}
 
+template<typename Type, std::size_t Count>
+void InsertionSortStrategy<Type, Count>::algorythm(std::shared_ptr<Composition<Type, Count>> composition)
+{
+	std::cout << "InsertionSortStrategy algorythm" << std::endl;
+}
 

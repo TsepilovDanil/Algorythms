@@ -4,7 +4,7 @@
 #include "../../CompositionsFabric.h"
 #include "../../../Compositions/Sorting/BubbleSort/BubbleSortComposition.h"
 #include "../../../AlgorythmsStrategies/Sorting/BubbleSort/BubbleSortStrategy.h"
-#include "../../../DataSources/ArraySource/ArraySource.h"
+#include "../../../DataSources/ArraySource/ArraySourceSingleton.h"
 
 template<typename Type, std::size_t Count>
 class  BubbleSortFabric : public CompositionsFabric<Type, Count>
@@ -21,9 +21,10 @@ public:
 template<typename Type, std::size_t Count>
 std::shared_ptr<Composition<Type, Count>> BubbleSortFabric<Type, Count>::GetComposition()
 {
-	auto aDataSource = std::make_shared<ArraySource<Type, Count>>();
-	auto aBubbleStrategy = std::make_shared<BubbleSortStrategy<Type, Count>>();
-	auto aComposition = std::make_shared<BubbelSortComposition<Type, Count>>(aBubbleStrategy, aDataSource);
-	return aComposition;
+	//auto dataSource = std::make_shared<ArraySourceSingleton<Type, Count>>();
+	//ArraySourceSingleton<Type, Count>::_instance;
+	auto bubbleStrategy = std::make_shared<BubbleSortStrategy<Type, Count>>();
+	auto composition = std::make_shared<BubbelSortComposition<Type, Count>>(bubbleStrategy, nullptr);
+	return composition;
 }
 
