@@ -1,6 +1,7 @@
 #pragma once
 #include "../../AlgorythmStrategy.h"
 #include "../../../compositions/Composition.h"
+#include "../../../DataSources/ArraySource/ArraySourceSingleton.h"
 
 template<typename Type, std::size_t Count> class Composition;
 template<typename Type, std::size_t Count> class AlgorythmStrategy;
@@ -32,6 +33,11 @@ template<typename Type, std::size_t Count>
 void BubbleSortStrategy<Type, Count>::algorythm(std::shared_ptr<Composition<Type, Count>> composition)
 {
 	std::cout << "BubbleSortStrategy algorythm" << std::endl;
+	//auto ptr = composition;
+	//(*((*composition)._dataSource))[0];
+	//auto item = *(*ArraySourceSingleton<Type, Count>::Instance())[0];
+	std::cout << "((Composition<Type, Count>) * composition)->_dataSource->operator [0]: " << *(*ArraySourceSingleton<Type, Count>::Instance())[0] << std::endl;
+
 }
 
 

@@ -21,8 +21,9 @@ public:
 template<typename Type, std::size_t Count>
 std::shared_ptr<Composition<Type, Count>> BubbleSortFabric<Type, Count>::GetComposition()
 {
-	//auto dataSource = std::make_shared<ArraySourceSingleton<Type, Count>>();
-	//ArraySourceSingleton<Type, Count>::_instance;
+	std::shared_ptr<ArraySourceSingleton<Type, Count>> singleton = ArraySourceSingleton<Type, Count>::Instance();
+	*(*singleton)[0] = 1;
+
 	auto bubbleStrategy = std::make_shared<BubbleSortStrategy<Type, Count>>();
 	auto composition = std::make_shared<BubbelSortComposition<Type, Count>>(bubbleStrategy, nullptr);
 	return composition;

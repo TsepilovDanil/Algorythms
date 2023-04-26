@@ -4,6 +4,7 @@
 #include "CompositionsFabrics/Sorting/BubbleSort/BubbleSortFabric.h"
 #include "Compositions/Composition.h"
 #include "Compositions/Sorting/BubbleSort/BubbleSortComposition.h"
+#include "DataSources/ArraySource/ArraySourceSingleton.h"
 
 typedef int DataSourceType;
 #define DataSourceSize 10
@@ -14,7 +15,7 @@ int main()
     //std::cout << "uvar = " << var << std::endl;
     //std::cout << "var = " << var << std::endl;
 
-    ArraySourceSingleton<int, 10>::Instance();
+    
 
     std::shared_ptr<CompositionsFabric<DataSourceType, DataSourceSize>> bubbleSortFabric = std::make_shared<BubbleSortFabric<DataSourceType, DataSourceSize>>();
     auto composition = bubbleSortFabric->GetComposition();

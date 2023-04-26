@@ -2,7 +2,6 @@
 #include <cstddef>
 #include <memory>
 #include <set>
-#include <map>
 #include <string>
 
 template <typename Type, const std::size_t Count> 
@@ -11,68 +10,60 @@ class DataSourceSingleton
 protected:
 
 	DataSourceSingleton() = default;
-	virtual ~DataSourceSingleton() = default;
+	
 
-	static std::shared_ptr<DataSourceSingleton<Type, Count>> lookUp(std::string &singletonName);
+	static bool lookUp(const std::string& singletonName);
 
 public:
-	
-	std::shared_ptr<DataSourceSingleton<Type, Count>> Registrator(std::string &singletonName, std::shared_ptr<DataSourceSingleton<Type, Count>>);	
-	virtual const Type * const operator[] (const std::size_t index) { return nullptr; }
+	virtual ~DataSourceSingleton() = default;
+
+	static bool Registrator(const std::string &singletonName);	
+	virtual Type * operator[] (const std::size_t index) {return nullptr;}
+
+	static std::set<std::string> _registry;
 
 private:
-
-	static std::map<std::string, std::shared_ptr<DataSourceSingleton<Type, Count>>> _registry;
-	std::shared_ptr<DataSourceSingleton<Type, Count>> registerInserter(std::string& singletonName, std::shared_ptr<DataSourceSingleton<Type, Count>>);
+	
+	
+	static void registerInserter(const std::string& singletonName);
 };
 
 template<typename Type, std::size_t Count>
-std::shared_ptr<DataSourceSingleton<Type, Count>> DataSourceSingleton<Type, Count>::Registrator(std::string& singletonName, std::shared_ptr<DataSourceSingleton<Type, Count>> singletonPtr)
+std::set<std::string> DataSourceSingleton<Type, Count>::_registry;
+
+template<typename Type, std::size_t Count>
+bool DataSourceSingleton<Type, Count>::Registrator(const std::string& singletonName)
 {
 	if (singletonName == "array")
 	{
-		std::pair<std::string, std::shared_ptr<DataSourceSingleton<Type, Count>>> iterator = registerInserter(singletonName, singletonPtr);
-		return iterator.second;
+		registerInserter(singletonName);
+		return true;
 	}
 	else
-		return nullptr;
+		return false;
 }
 
 template<typename Type, std::size_t Count>
-std::shared_ptr<DataSourceSingleton<Type, Count>> DataSourceSingleton<Type, Count>::registerInserter(std::string& singletonName, std::shared_ptr<DataSourceSingleton<Type, Count>> singletonPtr)
+void DataSourceSingleton<Type, Count>::registerInserter(const std::string& singletonName)
 {
-	std::pair<std::string, std::shared_ptr<DataSourceSingleton<Type, Count>>> iterator;
-
 	if (!_registry.size())
 	{
-		iterator = _registry.insert(singletonName, singletonPtr);	
+		_registry.insert(singletonName);	
 	}
 	else
 	{
 		if (_registry.find(singletonName) == _registry.end())
 		{
-			iterator = _registry.insert(singletonName, singletonPtr);
-		}
-		else
-		{
-			iterator = _registry.find(singletonName);
+			_registry.insert(singletonName);
 		}
 	}
-	return iterator.second;
 }
 template<typename Type, std::size_t Count>
-std::shared_ptr<DataSourceSingleton<Type, Count>> DataSourceSingleton<Type, Count>::lookUp(std::string& singletonName)
+bool DataSourceSingleton<Type, Count>::lookUp(const std::string& singletonName)
 {
-	//std::pair<std::string, std::shared_ptr<DataSourceSingleton<Type, Count>>> iterator;
-	//std::pair<std::string, std::shared_ptr<DataSourceSingleton<Type, Count>> iterator = 
-	//auto iterator = _registry.find(singletonName);
-
-	//if (iterator != _registry.end())
+	if (_registry.find(singletonName) != _registry.end())
 	{
-		//return iterator.second;
+		return true;
 	}
-	//else
-	{
-		return nullptr;
-	}
+	return false;
 }

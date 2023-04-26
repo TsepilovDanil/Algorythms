@@ -11,52 +11,62 @@ template <typename Type, const std::size_t Count> class DataSourceSingleton;
 template <typename Type, const std::size_t Count>
 class ArraySourceSingleton : public DataSourceSingleton <Type, Count>
 {
-protected:
-    
-    ArraySourceSingleton() = default;
-    ~ArraySourceSingleton() = default;
-
 public:
 
-	static std::shared_ptr<std::array<Type, Count>> * Instance();
+	ArraySourceSingleton() = default;
+	~ArraySourceSingleton() = default;
 
-	const Type* const operator[] (const std::size_t index) override;
+	static std::shared_ptr<ArraySourceSingleton<Type, Count>> Instance();
+
+	Type * operator[] (const std::size_t index) override;
+
+	static std::shared_ptr<ArraySourceSingleton<Type, Count>> _instance;
 
 private:
-	
-    static std::shared_ptr<std::array<Type, Count>> * _instance;
 
+	static const std::string _singletonName;
+	std::shared_ptr<std::array<Type, Count>> _array;
+	
 
 };
 
 template<typename Type, std::size_t Count>
-const Type * const ArraySourceSingleton<Type, Count>::operator[] (std::size_t index)
+const std::string ArraySourceSingleton<Type, Count>::_singletonName = "array";
+
+template<typename Type, std::size_t Count>
+std::shared_ptr<ArraySourceSingleton<Type, Count>> ArraySourceSingleton<Type, Count>::_instance = nullptr;
+
+//template<typename Type, std::size_t Count>
+//std::shared_ptr<std::array<Type, Count>> ArraySourceSingleton<Type, Count>::_array = nullptr;
+
+template<typename Type, std::size_t Count>
+Type * ArraySourceSingleton<Type, Count>::operator[] (std::size_t index)
 {
 	Type * elementPtr = nullptr;
-
 	try
 	{
-		elementPtr = &(*ArraySourceSingleton<Type, Count>::_instance)->at(index);
+		//std::shared_ptr<ArraySourceSingleton<Type, Count>> item = Instance();
+		elementPtr = &(*_array).at(index);
 	}
 	catch (const std::out_of_range& exception)
 	{
-		std::cout << exception.what() << std::endl;
+		std::cout << "ArraySourceSingleton<Type, Count>::operator[] exception: " << exception.what() << std::endl;
 	}
 	return elementPtr;
 }
 
 template<typename Type, std::size_t Count>
-std::shared_ptr<std::array<Type, Count>>* ArraySourceSingleton<Type, Count>::_instance = nullptr;
-
-template<typename Type, std::size_t Count>
-std::shared_ptr<std::array<Type, Count>>* ArraySourceSingleton<Type, Count>::Instance()
+std::shared_ptr<ArraySourceSingleton<Type, Count>> ArraySourceSingleton<Type, Count>::Instance()
 {
 	if (_instance == nullptr)
 	{
-		std::string singletonName = "array";
-		if (DataSourceSingleton<Type, Count>::lookUp(singletonName))
+		if (!DataSourceSingleton<Type, Count>::lookUp(_singletonName))
 		{
-
+			if (DataSourceSingleton<Type, Count>::Registrator(_singletonName))
+			{
+				_instance = std::make_shared<ArraySourceSingleton<Type, Count>>();
+				_instance->_array = std::make_shared<std::array<Type, Count>>();
+			}
 		}
 	}
 	return _instance;
