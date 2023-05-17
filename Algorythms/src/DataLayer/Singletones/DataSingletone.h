@@ -3,29 +3,38 @@
 #include <memory>
 #include <set>
 #include <string>
+#include "../Iterators/Iterator.h"
+#include "ArraySingleton/ArraySingleton.h"
+
+template <typename Type, const std::size_t Count> class ArraySourceSingleton;
 
 template <typename Type, const std::size_t Count> 
-class DataSourceSingleton
+class DataSourceSingleton : public Iterator<Type, Count>
 {
 protected:
 
 	DataSourceSingleton() = default;
+
+public:
 	
+	virtual ~DataSourceSingleton() = default;
+	
+	//virtual void function() {};
+	//virtual int function(int value) { return value; };
+	virtual float function(float value) { return value; };
+
+	static bool Registrator(const std::string &singletonName);	
+	virtual Type * const operator[] (const std::size_t index) {return nullptr;}
+
+protected:
 
 	static bool lookUp(const std::string& singletonName);
 
-public:
-	virtual ~DataSourceSingleton() = default;
-
-	static bool Registrator(const std::string &singletonName);	
-	virtual Type * operator[] (const std::size_t index) {return nullptr;}
-
-	static std::set<std::string> _registry;
-
 private:
 	
-	
+	static std::set<std::string> _registry;
 	static void registerInserter(const std::string& singletonName);
+
 };
 
 template<typename Type, std::size_t Count>
@@ -34,7 +43,7 @@ std::set<std::string> DataSourceSingleton<Type, Count>::_registry;
 template<typename Type, std::size_t Count>
 bool DataSourceSingleton<Type, Count>::Registrator(const std::string& singletonName)
 {
-	if (singletonName == "array")
+	if (singletonName == ArraySourceSingleton<Type, Count>::_singletonName)
 	{
 		registerInserter(singletonName);
 		return true;

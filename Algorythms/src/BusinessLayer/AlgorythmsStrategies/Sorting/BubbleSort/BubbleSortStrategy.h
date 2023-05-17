@@ -1,7 +1,7 @@
 #pragma once
 #include "../../AlgorythmStrategy.h"
 #include "../../../compositions/Composition.h"
-#include "../../../DataSources/ArraySource/ArraySourceSingleton.h"
+#include "../../../../DataLayer/Singletones/ArraySingleton/ArraySingleton.h"
 
 template<typename Type, std::size_t Count> class Composition;
 template<typename Type, std::size_t Count> class AlgorythmStrategy;

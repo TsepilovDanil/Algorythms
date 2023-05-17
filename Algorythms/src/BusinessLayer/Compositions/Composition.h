@@ -2,7 +2,7 @@
 
 #include <array>
 #include <memory>
-#include "../DataSources/DataSourceSingleton.h"
+#include "../../DataLayer/Singletones/DataSingletone.h"
 #include "../AlgorythmsStrategies/AlgorythmStrategy.h"
 
 template<typename Type, std::size_t Count> class AlgorythmStrategy;

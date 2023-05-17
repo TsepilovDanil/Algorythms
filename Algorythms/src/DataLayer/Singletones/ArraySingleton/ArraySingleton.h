@@ -3,8 +3,9 @@
 #include <iostream>
 #include <array>
 #include <memory>
-#include "../DataSourceSingleton.h"
-#include "ArraySourceSingleton.h"
+#include "../DataSingletone.h"
+#include "ArraySingleton.h"
+#include "../../Iterators/ArrayIterator/ArrayIterator.h"
 
 template <typename Type, const std::size_t Count> class DataSourceSingleton;
 
@@ -12,21 +13,29 @@ template <typename Type, const std::size_t Count>
 class ArraySourceSingleton : public DataSourceSingleton <Type, Count>
 {
 public:
+	
+	float a = (float)1.1;
+	using DataSourceSingleton<Type, Count>::function;
 
-	ArraySourceSingleton() = default;
+	ArraySourceSingleton() {  };
 	~ArraySourceSingleton() = default;
 
-	static std::shared_ptr<ArraySourceSingleton<Type, Count>> Instance();
+	//void function() override {};
 
-	Type * operator[] (const std::size_t index) override;
-
+	static const std::string _singletonName;
 	static std::shared_ptr<ArraySourceSingleton<Type, Count>> _instance;
+
+	static std::shared_ptr<ArraySourceSingleton<Type, Count>> Instance();
+	Type * const operator[] (const std::size_t index) override;
+
+	void First() override {};
+	void Next() override {};
+	bool IsDone() override { return false; };
+	Type* CurrentItem() override { return nullptr; };
 
 private:
 
-	static const std::string _singletonName;
-	std::shared_ptr<std::array<Type, Count>> _array;
-	
+	static std::shared_ptr<std::array<Type, Count>> _arraySource;
 
 };
 
@@ -36,19 +45,20 @@ const std::string ArraySourceSingleton<Type, Count>::_singletonName = "array";
 template<typename Type, std::size_t Count>
 std::shared_ptr<ArraySourceSingleton<Type, Count>> ArraySourceSingleton<Type, Count>::_instance = nullptr;
 
-//template<typename Type, std::size_t Count>
-//std::shared_ptr<std::array<Type, Count>> ArraySourceSingleton<Type, Count>::_array = nullptr;
+template<typename Type, std::size_t Count>
+std::shared_ptr<std::array<Type, Count>> ArraySourceSingleton<Type, Count>::_arraySource = nullptr;
 
 template<typename Type, std::size_t Count>
-Type * ArraySourceSingleton<Type, Count>::operator[] (std::size_t index)
+Type * const ArraySourceSingleton<Type, Count>::operator[] (std::size_t index)
 {
+	function(a);
+
 	Type * elementPtr = nullptr;
 	try
 	{
-		//std::shared_ptr<ArraySourceSingleton<Type, Count>> item = Instance();
-		elementPtr = &(*_array).at(index);
+		elementPtr = &(*_arraySource).at(index);
 	}
-	catch (const std::out_of_range& exception)
+	catch (const std::exception& exception)
 	{
 		std::cout << "ArraySourceSingleton<Type, Count>::operator[] exception: " << exception.what() << std::endl;
 	}
@@ -64,8 +74,9 @@ std::shared_ptr<ArraySourceSingleton<Type, Count>> ArraySourceSingleton<Type, Co
 		{
 			if (DataSourceSingleton<Type, Count>::Registrator(_singletonName))
 			{
+				std::shared_ptr<std::array<Type, Count>> arraySource = std::make_shared<std::array<Type, Count>>();
 				_instance = std::make_shared<ArraySourceSingleton<Type, Count>>();
-				_instance->_array = std::make_shared<std::array<Type, Count>>();
+				_instance->_arraySource = arraySource;
 			}
 		}
 	}

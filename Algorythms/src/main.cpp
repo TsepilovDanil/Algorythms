@@ -1,23 +1,23 @@
 ﻿#include <iostream>
 #include <memory>
-#include "CompositionsFabrics/CompositionsFabric.h"
-#include "CompositionsFabrics/Sorting/BubbleSort/BubbleSortFabric.h"
-#include "Compositions/Composition.h"
-#include "Compositions/Sorting/BubbleSort/BubbleSortComposition.h"
-#include "DataSources/ArraySource/ArraySourceSingleton.h"
+#include <array>
+
+#include "BusinessLayer/CompositionsFabrics/CompositionsFabric.h"
+#include "BusinessLayer/CompositionsFabrics/Sorting/BubbleSort/BubbleSortFabric.h"
+#include "BusinessLayer/Compositions/Composition.h"
+#include "BusinessLayer/Compositions/Sorting/BubbleSort/BubbleSortComposition.h"
 
 typedef int DataSourceType;
 #define DataSourceSize 10
 
-int main()
+int main(int argc, const std::size_t* argv[])
 {
-    //unsigned long var = 0;
-    //std::cout << "uvar = " << var << std::endl;
+    std::array<int, 3> ar({1,1,1});
+    //std::size_t var = 0;
     //std::cout << "var = " << var << std::endl;
+    //std::cin >> var;
 
-    
-
-    std::shared_ptr<CompositionsFabric<DataSourceType, DataSourceSize>> bubbleSortFabric = std::make_shared<BubbleSortFabric<DataSourceType, DataSourceSize>>();
+    std::shared_ptr < CompositionsFabric < DataSourceType, DataSourceSize >> bubbleSortFabric = std::make_shared<BubbleSortFabric<DataSourceType, DataSourceSize>>();
     auto composition = bubbleSortFabric->GetComposition();
     composition->StartAlgorythm();
 
