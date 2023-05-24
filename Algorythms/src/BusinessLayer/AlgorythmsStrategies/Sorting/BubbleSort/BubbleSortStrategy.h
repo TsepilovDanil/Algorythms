@@ -36,7 +36,7 @@ void BubbleSortStrategy<Type, Count>::algorythm(std::shared_ptr<Composition<Type
 	//auto ptr = composition;
 	//(*((*composition)._dataSource))[0];
 	//auto item = *(*ArraySourceSingleton<Type, Count>::Instance())[0];
-	std::cout << "((Composition<Type, Count>) * composition)->_dataSource->operator [0]: " << *(*ArraySourceSingleton<Type, Count>::Instance())[0] << std::endl;
+	//std::cout << "((Composition<Type, Count>) * composition)->_dataSource->operator [0]: " << *(*ArraySingleton<Type, Count>::Instance())[0] << std::endl;
 
 }
 

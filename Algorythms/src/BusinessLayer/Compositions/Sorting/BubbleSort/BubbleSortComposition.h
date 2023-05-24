@@ -8,7 +8,7 @@ class BubbelSortComposition : public Composition<Type, Count>
 public:
 	
 	BubbelSortComposition() = default;
-	BubbelSortComposition(std::shared_ptr<AlgorythmStrategy<Type, Count>> strategy, std::shared_ptr<DataSourceSingleton<Type, Count>> dataSource) : Composition<Type, Count>(strategy, dataSource) {};
+	BubbelSortComposition(std::shared_ptr<AlgorythmStrategy<Type, Count>> strategy, std::shared_ptr<DataSingleton<Type, Count>> dataSource) : Composition<Type, Count>(strategy, dataSource) {};
 	~BubbelSortComposition() = default;
 
 };

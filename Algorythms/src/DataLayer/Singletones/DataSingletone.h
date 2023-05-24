@@ -6,25 +6,19 @@
 #include "../Iterators/Iterator.h"
 #include "ArraySingleton/ArraySingleton.h"
 
-template <typename Type, const std::size_t Count> class ArraySourceSingleton;
+template <typename Type, const std::size_t Count> class ArraySingleton;
 
 template <typename Type, const std::size_t Count> 
-class DataSourceSingleton : public Iterator<Type, Count>
+class DataSingleton 
 {
 protected:
 
-	DataSourceSingleton() = default;
+	DataSingleton() = default;
+	virtual ~DataSingleton() = default;
 
 public:
 	
-	virtual ~DataSourceSingleton() = default;
-	
-	//virtual void function() {};
-	//virtual int function(int value) { return value; };
-	virtual float function(float value) { return value; };
-
 	static bool Registrator(const std::string &singletonName);	
-	virtual Type * const operator[] (const std::size_t index) {return nullptr;}
 
 protected:
 
@@ -38,12 +32,12 @@ private:
 };
 
 template<typename Type, std::size_t Count>
-std::set<std::string> DataSourceSingleton<Type, Count>::_registry;
+std::set<std::string> DataSingleton<Type, Count>::_registry;
 
 template<typename Type, std::size_t Count>
-bool DataSourceSingleton<Type, Count>::Registrator(const std::string& singletonName)
+bool DataSingleton<Type, Count>::Registrator(const std::string& singletonName)
 {
-	if (singletonName == ArraySourceSingleton<Type, Count>::_singletonName)
+	if (singletonName == ArraySingleton<Type, Count>::_singletonName)
 	{
 		registerInserter(singletonName);
 		return true;
@@ -53,7 +47,7 @@ bool DataSourceSingleton<Type, Count>::Registrator(const std::string& singletonN
 }
 
 template<typename Type, std::size_t Count>
-void DataSourceSingleton<Type, Count>::registerInserter(const std::string& singletonName)
+void DataSingleton<Type, Count>::registerInserter(const std::string& singletonName)
 {
 	if (!_registry.size())
 	{
@@ -67,8 +61,9 @@ void DataSourceSingleton<Type, Count>::registerInserter(const std::string& singl
 		}
 	}
 }
+
 template<typename Type, std::size_t Count>
-bool DataSourceSingleton<Type, Count>::lookUp(const std::string& singletonName)
+bool DataSingleton<Type, Count>::lookUp(const std::string& singletonName)
 {
 	if (_registry.find(singletonName) != _registry.end())
 	{

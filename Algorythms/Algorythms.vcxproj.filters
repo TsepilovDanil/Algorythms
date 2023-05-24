@@ -96,6 +96,15 @@
     <Filter Include="Исходные файлы\DataLayer\Singletones\ArraySingletones">
       <UniqueIdentifier>{52923e2a-ce4c-4a33-9391-728d0d79147d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Исходные файлы\DataLayer\DataSources">
+      <UniqueIdentifier>{8f0e6de6-1540-4de8-8000-38a83aac46aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\DataLayer\DataSources\ArraySource">
+      <UniqueIdentifier>{4a7b31ec-e76f-4a3c-a4e2-904bb3ebe0d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\DataLayer\Iterators\ForwardIterator">
+      <UniqueIdentifier>{a6637fa0-79f7-4afe-a8ef-360834a1dfb7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -128,6 +137,15 @@
     <ClCompile Include="src\DataLayer\Iterators\Iterator.cpp">
       <Filter>Исходные файлы\DataLayer\Iterators</Filter>
     </ClCompile>
+    <ClCompile Include="src\DataLayer\DataSources\DataSource.cpp">
+      <Filter>Исходные файлы\DataLayer\DataSources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DataLayer\DataSources\ArraySource\ArraySource.cpp">
+      <Filter>Исходные файлы\DataLayer\DataSources\ArraySource</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DataLayer\Iterators\ForwardIterator\ForwardIterator.cpp">
+      <Filter>Исходные файлы\DataLayer\Iterators\ForwardIterator</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BusinessLayer\AlgorythmsStrategies\AlgorythmStrategy.h">
@@ -156,6 +174,15 @@
     </ClInclude>
     <ClInclude Include="src\DataLayer\Iterators\Iterator.h">
       <Filter>Исходные файлы\DataLayer\Iterators</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DataLayer\DataSources\DataSource.h">
+      <Filter>Исходные файлы\DataLayer\DataSources</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DataLayer\DataSources\ArraySource\ArraySource.h">
+      <Filter>Исходные файлы\DataLayer\DataSources\ArraySource</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DataLayer\Iterators\ForwardIterator\ForwardIterator.h">
+      <Filter>Исходные файлы\DataLayer\Iterators\ForwardIterator</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

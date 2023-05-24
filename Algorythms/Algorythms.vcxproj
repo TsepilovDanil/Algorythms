@@ -145,6 +145,9 @@
     <ClCompile Include="src\BusinessLayer\CompositionsFabrics\Sorting\BubbleSort\BubbleSortFabric.cpp" />
     <ClCompile Include="src\BusinessLayer\Compositions\Composition.cpp" />
     <ClCompile Include="src\BusinessLayer\Compositions\Sorting\BubbleSort\BubbleSortComposition.cpp" />
+    <ClCompile Include="src\DataLayer\DataSources\ArraySource\ArraySource.cpp" />
+    <ClCompile Include="src\DataLayer\DataSources\DataSource.cpp" />
+    <ClCompile Include="src\DataLayer\Iterators\ForwardIterator\ForwardIterator.cpp" />
     <ClCompile Include="src\DataLayer\Iterators\Iterator.cpp" />
     <ClCompile Include="src\DataLayer\Singletones\ArraySingleton\ArraySingleton.cpp" />
     <ClCompile Include="src\DataLayer\Singletones\DataSingletone.cpp" />
@@ -157,6 +160,9 @@
     <ClInclude Include="src\BusinessLayer\CompositionsFabrics\Sorting\BubbleSort\BubbleSortFabric.h" />
     <ClInclude Include="src\BusinessLayer\Compositions\Composition.h" />
     <ClInclude Include="src\BusinessLayer\Compositions\Sorting\BubbleSort\BubbleSortComposition.h" />
+    <ClInclude Include="src\DataLayer\DataSources\ArraySource\ArraySource.h" />
+    <ClInclude Include="src\DataLayer\DataSources\DataSource.h" />
+    <ClInclude Include="src\DataLayer\Iterators\ForwardIterator\ForwardIterator.h" />
     <ClInclude Include="src\DataLayer\Iterators\Iterator.h" />
     <ClInclude Include="src\DataLayer\Singletones\ArraySingleton\ArraySingleton.h" />
     <ClInclude Include="src\DataLayer\Singletones\DataSingletone.h" />
