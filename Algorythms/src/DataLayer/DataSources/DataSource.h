@@ -5,17 +5,26 @@
 #include <initializer_list>
 #include "../Iterators/Iterator.h"
 
-template<typename Type, std::size_t Count> class Iterator;
+template<typename Type> class Iterator;
 
-template<typename Type, const std::size_t Count>
+template<typename Type>
 class DataSource
 {
 public:
 	DataSource() = default;
 	virtual ~DataSource() = default;
 
-	virtual std::shared_ptr<Iterator<Type, Count>> GetForwardIterator() { return nullptr; }
+	std::shared_ptr<Iterator<Type>> _iterator = nullptr;
+
+	std::shared_ptr<Iterator<Type>> GetIterator() { return _iterator; }
+
+	virtual void SetIterator(std::shared_ptr<Iterator<Type>> iterator) { _iterator = iterator; }
 
 	virtual Type* operator[] (const std::size_t index) { return nullptr; }
+	
+protected:
+
+	std::size_t _sizeOfSource = 0;
+
 };
 

@@ -5,28 +5,27 @@
 #include "../../DataLayer/Singletones/DataSingletone.h"
 #include "../AlgorythmsStrategies/AlgorythmStrategy.h"
 
-template<typename Type, std::size_t Count> class AlgorythmStrategy;
-template<typename Type, std::size_t Count> class DataSingleton;
+template<typename Type> class AlgorythmStrategy;
+template<typename Type> class DataSingleton;
 
-template<typename Type, std::size_t Count>
+template<typename Type>
 class Composition
 {
 public:
-	Composition() : _strategy(nullptr) {};
-	Composition(std::shared_ptr<AlgorythmStrategy<Type, Count>> strategy, std::shared_ptr<DataSingleton<Type, Count>> dataSource) : _strategy(strategy), _dataSource(dataSource) {};
+	Composition(std::shared_ptr<AlgorythmStrategy<Type>> strategy, std::shared_ptr<DataSingleton<Type>> dataSource) : _strategy(strategy), _dataSourceSingleton(dataSource) {};
 	virtual ~Composition() = default;
 
-	std::shared_ptr<AlgorythmStrategy<Type, Count>> _strategy;
+	std::shared_ptr<AlgorythmStrategy<Type>> _strategy = nullptr;
 
-	std::shared_ptr<DataSingleton<Type, Count>> _dataSource;
+	std::shared_ptr<DataSingleton<Type>> _dataSourceSingleton = nullptr;
 
 	void StartAlgorythm();
 
 };
 
-template<typename Type, std::size_t Count>
-void Composition<Type, Count>::StartAlgorythm()
+template<typename Type>
+void Composition<Type>::StartAlgorythm()
 {
-	if(Composition<Type, Count>::_strategy)
-		Composition<Type, Count>::_strategy->StartWork();
+	if(Composition<Type>::_strategy)
+		Composition<Type>::_strategy->StartWork();
 }

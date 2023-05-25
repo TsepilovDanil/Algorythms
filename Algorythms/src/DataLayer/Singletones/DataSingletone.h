@@ -6,9 +6,9 @@
 #include "../Iterators/Iterator.h"
 #include "ArraySingleton/ArraySingleton.h"
 
-template <typename Type, const std::size_t Count> class ArraySingleton;
+template <typename Type> class ArraySingleton;
 
-template <typename Type, const std::size_t Count> 
+template <typename Type> 
 class DataSingleton 
 {
 protected:
@@ -18,7 +18,9 @@ protected:
 
 public:
 	
-	static bool Registrator(const std::string &singletonName);	
+	static bool Registrator(const std::string &singletonName);
+
+	virtual Type* operator[] (const std::size_t index) { return nullptr; }
 
 protected:
 
@@ -31,13 +33,13 @@ private:
 
 };
 
-template<typename Type, std::size_t Count>
-std::set<std::string> DataSingleton<Type, Count>::_registry;
+template<typename Type>
+std::set<std::string> DataSingleton<Type>::_registry;
 
-template<typename Type, std::size_t Count>
-bool DataSingleton<Type, Count>::Registrator(const std::string& singletonName)
+template<typename Type>
+bool DataSingleton<Type>::Registrator(const std::string& singletonName)
 {
-	if (singletonName == ArraySingleton<Type, Count>::_singletonName)
+	if (singletonName == ArraySingleton<Type>::_singletonName)
 	{
 		registerInserter(singletonName);
 		return true;
@@ -46,8 +48,8 @@ bool DataSingleton<Type, Count>::Registrator(const std::string& singletonName)
 		return false;
 }
 
-template<typename Type, std::size_t Count>
-void DataSingleton<Type, Count>::registerInserter(const std::string& singletonName)
+template<typename Type>
+void DataSingleton<Type>::registerInserter(const std::string& singletonName)
 {
 	if (!_registry.size())
 	{
@@ -62,8 +64,8 @@ void DataSingleton<Type, Count>::registerInserter(const std::string& singletonNa
 	}
 }
 
-template<typename Type, std::size_t Count>
-bool DataSingleton<Type, Count>::lookUp(const std::string& singletonName)
+template<typename Type>
+bool DataSingleton<Type>::lookUp(const std::string& singletonName)
 {
 	if (_registry.find(singletonName) != _registry.end())
 	{

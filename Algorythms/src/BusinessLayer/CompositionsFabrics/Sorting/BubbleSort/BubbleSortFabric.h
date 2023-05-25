@@ -4,28 +4,45 @@
 #include "../../CompositionsFabric.h"
 #include "../../../Compositions/Sorting/BubbleSort/BubbleSortComposition.h"
 #include "../../../AlgorythmsStrategies/Sorting/BubbleSort/BubbleSortStrategy.h"
+#include "../../../../DataLayer/Singletones/DataSingletone.h"
 #include "../../../../DataLayer/Singletones/ArraySingleton/ArraySingleton.h"
 
-template<typename Type, std::size_t Count>
-class  BubbleSortFabric : public CompositionsFabric<Type, Count>
+template<typename Type>
+class  BubbleSortFabric : public CompositionsFabric<Type>
 {
 public:
 
-	BubbleSortFabric() = default;
+	//BubbleSortFabric(std::size_t sizeOfSource);
+
+	BubbleSortFabric(std::initializer_list<Type>&& initializer);
 	~BubbleSortFabric() = default;
 
-	std::shared_ptr<Composition<Type, Count>> GetComposition() override;
-
+	std::shared_ptr<Composition<Type>> GetComposition() override;
 };
 
-template<typename Type, std::size_t Count>
-std::shared_ptr<Composition<Type, Count>> BubbleSortFabric<Type, Count>::GetComposition()
+/*template<typename Type>
+BubbleSortFabric<Type>::BubbleSortFabric(std::size_t sizeOfSource)
+{
+	std::shared_ptr<AlgorythmStrategy<Type>> strategy = std::make_shared<BubbleSortStrategy<Type>>();
+	CompositionsFabric<Type>::_composition = std::make_shared<BubbelSortComposition<Type>>(strategy, nullptr);
+	strategy->SetComposition(CompositionsFabric<Type>::_composition);
+}*/
+
+template<typename Type>
+BubbleSortFabric<Type>::BubbleSortFabric(std::initializer_list<Type> && initializer)
+{
+	std::shared_ptr<DataSingleton<Type>> dataSingleton = std::make_shared<ArraySingleton<Type>>(std::forward<std::initializer_list<Type>>(initializer));
+	std::shared_ptr<AlgorythmStrategy<Type>> strategy = std::make_shared<BubbleSortStrategy<Type>>();
+	CompositionsFabric<Type>::_composition = std::make_shared<BubbelSortComposition<Type>>(strategy, dataSingleton);
+	strategy->SetComposition(CompositionsFabric<Type>::_composition);
+}
+
+template<typename Type>
+std::shared_ptr<Composition<Type>> BubbleSortFabric<Type>::GetComposition()
 {
 
-	//*(*ArraySingleton<Type, Count>::Instance())[0] = 1;
-
-	auto bubbleStrategy = std::make_shared<BubbleSortStrategy<Type, Count>>();
-	auto composition = std::make_shared<BubbelSortComposition<Type, Count>>(bubbleStrategy, nullptr);
-	return composition;
+	//*(*ArraySingleton<Type, Count>::Instance())[0] = 1; BubbleSortFabric<Type>::_sizeOfSource
+	
+	return CompositionsFabric<Type>::_composition;
 }
 

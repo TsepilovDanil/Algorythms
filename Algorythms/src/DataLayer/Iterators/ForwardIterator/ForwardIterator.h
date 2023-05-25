@@ -3,11 +3,11 @@
 #include <memory>
 #include "../Iterator.h"
 
-template<typename Type, std::size_t Count>
-class ForwardIterator : public Iterator<Type, Count>
+template<typename Type>
+class ForwardIterator : public Iterator<Type>
 {
 	ForwardIterator() = default;
-	ForwardIterator(std::shared_ptr<DataSource<Type, Count>> dataSource) : Iterator<Type, Count>(dataSource) {};
+	ForwardIterator(std::shared_ptr<DataSource<Type>> dataSource) : Iterator<Type>(dataSource) {};
 	~ForwardIterator() = default;
 
 	void First() override;
@@ -17,26 +17,26 @@ class ForwardIterator : public Iterator<Type, Count>
 
 };
 
-template<typename Type, std::size_t Count>
-void ForwardIterator<Type, Count>::First()
+template<typename Type>
+void ForwardIterator<Type>::First()
 {
 
 }
 
-template<typename Type, std::size_t Count>
-void ForwardIterator<Type, Count>::Next()
+template<typename Type>
+void ForwardIterator<Type>::Next()
 {
 
 }
 
-template<typename Type, std::size_t Count>
-bool ForwardIterator<Type, Count>::IsDone()
+template<typename Type>
+bool ForwardIterator<Type>::IsDone()
 {
 
 }
 
-template<typename Type, std::size_t Count>
-Type& ForwardIterator<Type, Count>::CurrentItem()
+template<typename Type>
+Type& ForwardIterator<Type>::CurrentItem()
 {
 
 }

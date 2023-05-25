@@ -3,7 +3,7 @@
 #include <array>
 #include "../compositions/Composition.h"
 
-template<typename Type, std::size_t Count>
+template<typename Type>
 class CompositionsFabric
 {
 public:
@@ -11,8 +11,12 @@ public:
 	CompositionsFabric() = default;
 	virtual ~CompositionsFabric() = default;
 
-	virtual std::shared_ptr<Composition<Type, Count>> GetComposition() { return nullptr; };
-	
-	virtual void StartAlgorythm(void*) {};
+	virtual std::shared_ptr<Composition<Type>> GetComposition() { return nullptr; };
+
+	std::shared_ptr<Composition<Type>> _composition = nullptr;
+
+protected:
+
 };
+
 

@@ -3,45 +3,51 @@
 #include "../../Iterators/ForwardIterator/ForwardIterator.h"
 #include "../DataSource.h"
 
-template<typename Type, std::size_t Count>
-class ArraySource : public DataSource<Type, Count>
+template<typename Type>
+class ArraySource : public DataSource<Type>
 {
 
 public:
 
-	std::size_t s = 5;
+	ArraySource() = default;
 
-	ArraySource() : _array((new Type[s], [](Type* p) {delete[] p; })) {};
+	ArraySource(std::size_t sizeOfSource);
+	ArraySource(std::initializer_list<Type> && initializer);
 
-	//ArraySource(std::initializer_list<Type> initialization) : _arraySource(std::make_shared<std::array<Type, Count>>(initialization, initialization.size())) {};
-
+	void SetIterator(std::shared_ptr<Iterator<Type>> iterator) override { DataSource<Type>::_iterator = iterator; }
 	Type* operator[] (const std::size_t index) override;
 
-	std::shared_ptr<std::array<Type, Count>> _arraySource = nullptr;
-
-	std::shared_ptr<Type> _array;
-
-	std::shared_ptr<Iterator<Type, Count>> GetForwardIterator() override;
+	std::shared_ptr <Type[]> _source = nullptr;
 
 };
 
-template<typename Type, std::size_t Count>
-Type* ArraySource<Type, Count>::operator[] (std::size_t index)
+template<typename Type>
+Type* ArraySource<Type>::operator[] (std::size_t index)
 {
 	try
-	{
-		return &_arraySource->at(index);
+	{		
+		return &(_source.get())[index];;
 	}
 	catch (const std::exception& exception)
 	{
-		std::cout << "ArraySourceSingleton<Type, Count>::operator[] exception: " << exception.what() << std::endl;
+		std::cout << "ArraySource<Type>::operator[] exception: " << exception.what() << std::endl;
 	}
 	return nullptr;
 }
 
-template<typename Type, std::size_t Count>
-std::shared_ptr<Iterator<Type, Count>> ArraySource<Type, Count>::GetForwardIterator()
+template<typename Type>
+ArraySource<Type>::ArraySource(std::size_t sizeOfSource)
 {
-	return std::make_shared<ForwardIterator<Type, Count>>(this);
+
+}
+
+template<typename Type>
+ArraySource<Type>::ArraySource(std::initializer_list<Type> &&initializer)
+{
+	DataSource<Type>::_sizeOfSource = initializer.size();
+	//may be it is need to replace by an allocator 
+	_source = std::shared_ptr<Type[]>(new Type[initializer.size()]{ *initializer.begin() }, [](Type* p) {delete[] p; });
+
+	auto val = (_source.get())[0];
 }
 
