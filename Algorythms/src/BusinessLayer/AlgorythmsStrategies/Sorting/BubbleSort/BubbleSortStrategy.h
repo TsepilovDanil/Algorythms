@@ -38,6 +38,10 @@ void BubbleSortStrategy<Type>::algorythm(std::shared_ptr<Composition<Type>> comp
 
 	auto val = *(*_composition._dataSourceSingleton)[0];
 
+	Swap(&*(*_composition._dataSourceSingleton)[0], 0, 1);
+
+	auto val2 = *(*_composition._dataSourceSingleton)[0];
+
 	//_composition.
 	//auto ptr = composition;
 	//(*((*composition)._dataSourceSingleton))[0];

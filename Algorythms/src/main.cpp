@@ -11,9 +11,13 @@
 
 int main(int argc, const std::size_t* argv[])
 {
-    std::initializer_list<const int> list{ 2,1,1 };
+    std::initializer_list<int> list{ 2,1,1 };
+    
+    if (!list.size())
+        return 0;
 
-    std::shared_ptr <CompositionsFabric<std::remove_reference<decltype(*list.begin())>::type>> bubbleSortFabric = std::make_shared<BubbleSortFabric<std::remove_reference<decltype(*list.begin())>::type>>(std::forward<std::initializer_list<std::remove_reference<decltype(*list.begin())>::type>>(list));
+    //std::shared_ptr <CompositionsFabric<std::remove_reference<decltype(*list.begin())>::type>> bubbleSortFabric = std::make_shared<BubbleSortFabric<std::remove_reference<decltype(*list.begin())>::type>>(std::forward<std::initializer_list<std::remove_reference<decltype(*list.begin())>::type>>(list));
+    std::shared_ptr <CompositionsFabric<std::remove_reference<decltype(*const_cast<int*>(list.begin()))>::type>> bubbleSortFabric = std::make_shared<BubbleSortFabric<std::remove_reference<decltype(*const_cast<int*>(list.begin()))>::type>>(std::forward<std::initializer_list<std::remove_reference<decltype(*const_cast<int*>(list.begin()))>::type>>(list));
     auto composition = bubbleSortFabric->GetComposition();
     composition->StartAlgorythm();
 

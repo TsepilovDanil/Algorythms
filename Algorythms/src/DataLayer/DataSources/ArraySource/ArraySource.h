@@ -48,6 +48,7 @@ ArraySource<Type>::ArraySource(std::initializer_list<Type> &&initializer)
 	//may be it is need to replace by an allocator 
 	_source = std::shared_ptr<Type[]>(new Type[initializer.size()]{ *initializer.begin() }, [](Type* p) {delete[] p; });
 
-	auto val = (_source.get())[0];
+
+	//auto val = (_source.get())[0];
 }
 
