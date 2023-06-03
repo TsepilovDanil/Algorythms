@@ -5,6 +5,8 @@
 
 template<typename Type> class Composition;
 template<typename Type> class AlgorythmStrategy;
+template<typename Type> class DataSingleton;
+template<typename Type> class ArraySingleton;
 
 template<typename Type>
 class BubbleSortStrategy : public AlgorythmStrategy<Type>
@@ -19,36 +21,77 @@ public:
 
 private:
 	
-	void algorythm(std::shared_ptr<Composition<Type>> composition);
+	void algorythm();
 
 };
 
 template<typename Type>
 void BubbleSortStrategy<Type>::StartWork()
 {
-	auto strategyThread = std::thread(&BubbleSortStrategy::algorythm, this, AlgorythmStrategy<Type>::_composition);
+	auto strategyThread = std::thread(&BubbleSortStrategy::algorythm, this);
 	strategyThread.join();
 }
 
 template<typename Type>
-void BubbleSortStrategy<Type>::algorythm(std::shared_ptr<Composition<Type>> composition)
+void BubbleSortStrategy<Type>::algorythm()
 {
 	std::cout << "BubbleSortStrategy algorythm" << std::endl;
-	Composition<Type> _composition = *composition;
 
-	auto val1 = *(*_composition._dataSourceSingleton)[0];
-	auto val2 = *(*_composition._dataSourceSingleton)[1];
-	auto val3 = *(*_composition._dataSourceSingleton)[2];
+	if (!AlgorythmStrategy<Type>::_composition || !AlgorythmStrategy<Type>::_composition->_dataSingleton)
+	{
+		std::cout << "BubbleSortStrategy algorythm: wrong parameters - emergency exit" << std::endl;
+		return;
+	}
 
-	Swap(&*(*_composition._dataSourceSingleton)[0], 0, 1);
+	std::shared_ptr<DataSingleton<Type>> singletone = AlgorythmStrategy<Type>::_composition->_dataSingleton;
+
+	std::size_t singletoneSize;
+	if (!singletone || !singletone->GetSingletoneSize(ArraySingleton<Type>::_singletonName, singletoneSize))
+		return;
+
+	std::cout << "Original array     : ";
+	for (int i = 0; i < singletoneSize; ++i) {
+		std::cout << *(*singletone)[i];
+	}
+	std::cout << std::endl;
+	
+	bool swapped;
+
+	do
+	{
+		swapped = false;
+		for (std::size_t i = 1; i < singletoneSize; ++i) {
+			if (*(*singletone)[i - 1] > *(*singletone)[i])
+			{
+				AlgorythmStrategy<Type>::Swap((*singletone)[0], i - 1, i);
+				swapped = true;
+
+				std::cout << "Valued iteration   : ";
+				
+				for (int i = 0; i < singletoneSize; ++i) {
+					std::cout << *(*singletone)[i];
+				}
+				std::cout << std::endl;
+			}
+			else
+			{
+				std::cout << "Empty iteration    : " << std::endl;;
+			}
+		}
+
+		if (swapped)
+		{
+			std::cout << "Outer iteration    :*";
+			for (int i = 0; i < singletoneSize; ++i) {
+				std::cout << *(*singletone)[i];
+			}
+			std::cout << "*" << std::endl;
+		}
+		
+
+	} while (swapped != false);
 
 	
-
-	//_composition.
-	//auto ptr = composition;
-	//(*((*composition)._dataSourceSingleton))[0];
-	//auto item = *(*ArraySourceSingleton<Type, Count>::Instance())[0];
-	//std::cout << "((Composition<Type, Count>) * composition)->_dataSourceSingleton->operator [0]: " << *(*ArraySingleton<Type, Count>::Instance())[0] << std::endl;
 
 }
 

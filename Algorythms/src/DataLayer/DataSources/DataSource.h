@@ -20,7 +20,9 @@ public:
 
 	virtual void SetIterator(std::shared_ptr<Iterator<Type>> iterator) { _iterator = iterator; }
 
-	virtual Type* operator[] (const std::size_t index) { return nullptr; }
+	virtual Type* operator[] (const std::size_t index) { 
+		return nullptr; 
+	}
 	
 protected:
 

@@ -40,9 +40,6 @@ BubbleSortFabric<Type>::BubbleSortFabric(std::initializer_list<Type> && initiali
 template<typename Type>
 std::shared_ptr<Composition<Type>> BubbleSortFabric<Type>::GetComposition()
 {
-
-	//*(*ArraySingleton<Type, Count>::Instance())[0] = 1; BubbleSortFabric<Type>::_sizeOfSource
-	
 	return CompositionsFabric<Type>::_composition;
 }
 

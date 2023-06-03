@@ -15,7 +15,7 @@ public:
 
 	virtual void StartWork();
 	void SetComposition(std::shared_ptr<Composition<Type>> composition) { _composition = composition; };
-	void Swap(Type* items, int left, int right);
+	void Swap(Type* items, std::size_t left, std::size_t right);
 
 private:
 
@@ -35,10 +35,8 @@ void AlgorythmStrategy<Type>::StartWork()
 }
 
 template<typename Type>
-void Swap(Type* items, int left, int right)
+void AlgorythmStrategy<Type>::Swap(Type* items, std::size_t left, std::size_t right)
 {
-	//std::remove_reference<decltype(*items)> var;
-
 	if (left != right)
 	{
 		Type temp = items[left];
