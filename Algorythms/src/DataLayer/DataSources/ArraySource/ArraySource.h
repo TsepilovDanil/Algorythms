@@ -57,9 +57,5 @@ ArraySource<Type>::ArraySource(std::initializer_list<Type> &&initializer)
 	{
 		(&*_source)[sourceIndex++] = *initializerIterator;
 	}
-
-	//auto source1 = (&*_source)[0];
-	//auto source2 = (&*_source)[1];
-	//auto source3 = (&*_source)[2];
 }
 
