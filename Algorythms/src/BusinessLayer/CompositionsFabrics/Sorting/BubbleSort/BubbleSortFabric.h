@@ -17,7 +17,6 @@ public:
 	BubbleSortFabric(std::initializer_list<Type>&& initializer);
 	~BubbleSortFabric() = default;
 
-	std::shared_ptr<Composition<Type>> GetComposition() override;
 };
 
 /*template<typename Type>
@@ -37,9 +36,5 @@ BubbleSortFabric<Type>::BubbleSortFabric(std::initializer_list<Type> && initiali
 	strategy->SetComposition(CompositionsFabric<Type>::_composition);
 }
 
-template<typename Type>
-std::shared_ptr<Composition<Type>> BubbleSortFabric<Type>::GetComposition()
-{
-	return CompositionsFabric<Type>::_composition;
-}
+
 

@@ -1,15 +1,27 @@
 #pragma once
+#include <cstddef>
+#include <memory>
 #include "../../CompositionsFabric.h"
-#include "../../../compositions/sorting/quick sort/QuickSortComposition.h"
+#include "../../../Compositions/Sorting/QuickSort/QuickSortComposition.h"
+#include "../../../AlgorythmsStrategies/Sorting/QuickSort/QuickSortStrategy.h"
+#include "../../../../DataLayer/Singletones/DataSingletone.h"
+#include "../../../../DataLayer/Singletones/ArraySingleton/ArraySingleton.h"
 
-
-class  QuickSortFabric : public CompositionsFabric
+template<typename Type>
+class  QuickSortFabric : public CompositionsFabric<Type>
 {
 public:
-	QuickSortFabric() = default;
+
+	QuickSortFabric(std::initializer_list<Type>&& initializer);
 	~QuickSortFabric() = default;
-
-	std::shared_ptr<Composition> GetComposition() override { return std::make_shared<QuickSortComposition>(); };
-
 };
+
+template<typename Type>
+QuickSortFabric<Type>::QuickSortFabric(std::initializer_list<Type>&& initializer)
+{
+	std::shared_ptr<DataSingleton<Type>> dataSingleton = std::make_shared<ArraySingleton<Type>>(std::forward<std::initializer_list<Type>>(initializer));
+	std::shared_ptr<AlgorythmStrategy<Type>> strategy = std::make_shared<QuickSortStrategy<Type>>();
+	CompositionsFabric<Type>::_composition = std::make_shared<QuickSortComposition<Type>>(strategy, dataSingleton);
+	strategy->SetComposition(CompositionsFabric<Type>::_composition);
+}
 

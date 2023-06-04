@@ -15,27 +15,27 @@ class DataSingleton
 protected:
 
 	DataSingleton() = default;
-	virtual ~DataSingleton() = default;
 
 public:
-	
-	static bool Registrator(const std::string &singletonName, const std::size_t singletonSize);
+
+	virtual ~DataSingleton() = default;
 
 	virtual Type* operator[] (const std::size_t index) { 
 		return nullptr;
 	}
 
+	virtual std::shared_ptr<DataSingleton<Type>> Instance();
 	bool GetSingletoneSize(const std::string& singletonName, std::size_t &size);
 
 protected:
 
-	bool lookUp(const std::string& singletonName);
+	bool registrator(const std::string& singletonName, const std::size_t singletonSize);
 	
-
 private:
 	
 	static std::map<std::string, const std::size_t> _registry;
-	static void registerInserter(const std::string& singletonName, const std::size_t singletonSize);
+	bool lookUp(const std::string& singletonName);
+	void registerInserter(const std::string& singletonName, const std::size_t singletonSize);
 
 };
 
@@ -43,31 +43,29 @@ template<typename Type>
 std::map<std::string, const std::size_t> DataSingleton<Type>::_registry;
 
 template<typename Type>
-bool DataSingleton<Type>::Registrator(const std::string& singletonName, const std::size_t singletonSize)
+std::shared_ptr<DataSingleton<Type>> DataSingleton<Type>::Instance()
 {
-	if (singletonName == ArraySingleton<Type>::_singletonName)
-	{
-		registerInserter(singletonName, singletonSize);
-		return true;
-	}
-	else
-		return false;
+	return nullptr;
 }
 
 template<typename Type>
-void DataSingleton<Type>::registerInserter(const std::string& singletonName, const std::size_t singletonSize)
+bool DataSingleton<Type>::GetSingletoneSize(const std::string& singletonName, std::size_t& size)
 {
-	if (!_registry.size())
-	{
-		_registry.insert({ singletonName, singletonSize });
-	}
-	else
-	{
-		if (_registry.find(singletonName) == _registry.end())
-		{
-			_registry.insert({singletonName, singletonSize});
-		}
-	}
+	if (!lookUp(singletonName))
+		return false;
+	auto singletonePair = _registry.find(singletonName);
+	size = singletonePair->second;
+	return true;
+}
+
+template<typename Type>
+bool DataSingleton<Type>::registrator(const std::string& singletonName, const std::size_t singletonSize)
+{
+	if (lookUp(singletonName))
+		return false;
+
+	registerInserter(singletonName, singletonSize);
+		return true;
 }
 
 template<typename Type>
@@ -81,11 +79,10 @@ bool DataSingleton<Type>::lookUp(const std::string& singletonName)
 }
 
 template<typename Type>
-bool DataSingleton<Type>::GetSingletoneSize(const std::string& singletonName, std::size_t& size)
+void DataSingleton<Type>::registerInserter(const std::string& singletonName, const std::size_t singletonSize)
 {
-	if (!lookUp(singletonName))
-		return false;
-	auto singletonePair = _registry.find(singletonName);
-	size = singletonePair->second;
-	return true;
+	_registry.insert({ singletonName, singletonSize });
 }
+
+
+

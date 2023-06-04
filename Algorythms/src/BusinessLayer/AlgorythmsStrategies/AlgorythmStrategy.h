@@ -9,13 +9,13 @@ template<typename Type>
 class AlgorythmStrategy
 {
 public:
+	
 	AlgorythmStrategy() = default;
 	AlgorythmStrategy(std::shared_ptr<Composition<Type>> composition) : _composition(composition) {};
 	virtual ~AlgorythmStrategy() = default;
 
 	virtual void StartWork();
 	void SetComposition(std::shared_ptr<Composition<Type>> composition) { _composition = composition; };
-	void Swap(Type* items, std::size_t left, std::size_t right);
 
 private:
 
@@ -24,6 +24,7 @@ private:
 protected:
 
 	std::shared_ptr<Composition<Type>> _composition;
+	void swap(Type* items, std::size_t left, std::size_t right);
 	
 };
 
@@ -35,7 +36,7 @@ void AlgorythmStrategy<Type>::StartWork()
 }
 
 template<typename Type>
-void AlgorythmStrategy<Type>::Swap(Type* items, std::size_t left, std::size_t right)
+void AlgorythmStrategy<Type>::swap(Type* items, std::size_t left, std::size_t right)
 {
 	if (left != right)
 	{

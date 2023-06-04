@@ -1,10 +1,13 @@
 #pragma once
-#include "../../../strategies/sorting/quick sort/QuickSortStrategy.h"
+#include "../../../compositions/Composition.h"
+#include "../../../AlgorythmsStrategies/Sorting/QuickSort/QuickSortStrategy.h"
 
-class QuickSortComposition : public Composition
+template<typename Type>
+class QuickSortComposition : public Composition<Type>
 {
 public:
-	QuickSortComposition() : Composition(std::make_shared<QuickSortStrategy>(this)) {};
-	~QuickSortComposition() = default;
-};
 
+	QuickSortComposition(std::shared_ptr<AlgorythmStrategy<Type>> strategy, std::shared_ptr<DataSingleton<Type>> dataSource) : Composition<Type>(strategy, dataSource) {};
+	~QuickSortComposition() = default;
+
+};

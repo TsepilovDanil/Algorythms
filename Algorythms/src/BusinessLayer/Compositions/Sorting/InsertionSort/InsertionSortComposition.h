@@ -1,10 +1,14 @@
 #pragma once
-#include "../../../strategies/sorting/insertion sort/InsertionSortStrategy.h"
+#include "../../../compositions/Composition.h"
+#include "../../../AlgorythmsStrategies/Sorting/InsertionSort/InsertionSortStrategy.h"
 
-class InsertionSortComposition : public Composition
+template<typename Type>
+class InsertionSortComposition : public Composition<Type>
 {
 public:
-	InsertionSortComposition() : Composition(std::make_shared<InsertionSortStrategy>(this)) {};
+
+	InsertionSortComposition(std::shared_ptr<AlgorythmStrategy<Type>> strategy, std::shared_ptr<DataSingleton<Type>> dataSource) : Composition<Type>(strategy, dataSource) {};
 	~InsertionSortComposition() = default;
+
 };
 

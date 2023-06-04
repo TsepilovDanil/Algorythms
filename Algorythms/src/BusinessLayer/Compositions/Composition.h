@@ -14,12 +14,14 @@ class Composition
 public:
 	Composition(std::shared_ptr<AlgorythmStrategy<Type>> strategy, std::shared_ptr<DataSingleton<Type>> dataSource) : _strategy(strategy), _dataSingleton(dataSource) {};
 	virtual ~Composition() = default;
-
-	std::shared_ptr<AlgorythmStrategy<Type>> _strategy = nullptr;
 	
 	std::shared_ptr<DataSingleton<Type>> _dataSingleton = nullptr;
 
 	void StartAlgorythm();
+
+private:
+
+	std::shared_ptr<AlgorythmStrategy<Type>> _strategy = nullptr;
 
 };
 

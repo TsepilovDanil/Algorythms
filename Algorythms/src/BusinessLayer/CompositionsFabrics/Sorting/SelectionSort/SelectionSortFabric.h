@@ -1,14 +1,27 @@
 #pragma once
+#include <cstddef>
+#include <memory>
 #include "../../CompositionsFabric.h"
-#include "../../../compositions/sorting/selection sort/SelectionSortComposition.h"
+#include "../../../Compositions/Sorting/SelectionSort/SelectionSortComposition.h"
+#include "../../../AlgorythmsStrategies/Sorting/SelectionSort/SelectionSortStrategy.h"
+#include "../../../../DataLayer/Singletones/DataSingletone.h"
+#include "../../../../DataLayer/Singletones/ArraySingleton/ArraySingleton.h"
 
-class  SelectionSortFabric : public CompositionsFabric
+template<typename Type>
+class  SelectionSortFabric : public CompositionsFabric<Type>
 {
 public:
-	SelectionSortFabric() = default;
+
+	SelectionSortFabric(std::initializer_list<Type>&& initializer);
 	~SelectionSortFabric() = default;
-
-	std::shared_ptr<Composition> GetComposition() override { return std::make_shared<SelectionSortComposition>(); };
-
 };
+
+template<typename Type>
+SelectionSortFabric<Type>::SelectionSortFabric(std::initializer_list<Type>&& initializer)
+{
+	std::shared_ptr<DataSingleton<Type>> dataSingleton = std::make_shared<ArraySingleton<Type>>(std::forward<std::initializer_list<Type>>(initializer));
+	std::shared_ptr<AlgorythmStrategy<Type>> strategy = std::make_shared<SelectionSortStrategy<Type>>();
+	CompositionsFabric<Type>::_composition = std::make_shared<SelectionSortComposition<Type>>(strategy, dataSingleton);
+	strategy->SetComposition(CompositionsFabric<Type>::_composition);
+}
 

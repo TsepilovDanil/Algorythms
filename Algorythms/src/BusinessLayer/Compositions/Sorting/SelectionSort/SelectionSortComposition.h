@@ -1,12 +1,13 @@
 #pragma once
-#include "../../../strategies/sorting/selection sort/SelectionSortStrategy.h"
+#include "../../../compositions/Composition.h"
+#include "../../../AlgorythmsStrategies/Sorting/SelectionSort/SelectionSortStrategy.h"
 
-class SelectionSortStrategy;
-
-class SelectionSortComposition : public Composition
+template<typename Type>
+class SelectionSortComposition : public Composition<Type>
 {
 public:
-	SelectionSortComposition() : Composition(std::make_shared<SelectionSortStrategy>(this)) {};
-	~SelectionSortComposition() = default;
-};
 
+	SelectionSortComposition(std::shared_ptr<AlgorythmStrategy<Type>> strategy, std::shared_ptr<DataSingleton<Type>> dataSource) : Composition<Type>(strategy, dataSource) {};
+	~SelectionSortComposition() = default;
+
+};

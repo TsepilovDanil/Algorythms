@@ -11,7 +11,7 @@ public:
 	CompositionsFabric() = default;
 	virtual ~CompositionsFabric() = default;
 
-	virtual std::shared_ptr<Composition<Type>> GetComposition() { return nullptr; };
+	std::shared_ptr<Composition<Type>> GetComposition();
 
 	std::shared_ptr<Composition<Type>> _composition = nullptr;
 
@@ -19,4 +19,9 @@ protected:
 
 };
 
+template<typename Type>
+std::shared_ptr<Composition<Type>> CompositionsFabric<Type>::GetComposition()
+{
+	return CompositionsFabric<Type>::_composition;
+}
 

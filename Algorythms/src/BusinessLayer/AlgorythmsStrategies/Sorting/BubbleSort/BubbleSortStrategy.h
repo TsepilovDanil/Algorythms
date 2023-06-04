@@ -43,7 +43,7 @@ void BubbleSortStrategy<Type>::algorythm()
 		return;
 	}
 
-	std::shared_ptr<DataSingleton<Type>> singletone = AlgorythmStrategy<Type>::_composition->_dataSingleton;
+	std::shared_ptr<DataSingleton<Type>> singletone = AlgorythmStrategy<Type>::_composition->_dataSingleton->Instance();
 
 	std::size_t singletoneSize;
 	if (!singletone || !singletone->GetSingletoneSize(ArraySingleton<Type>::_singletonName, singletoneSize))
@@ -63,7 +63,7 @@ void BubbleSortStrategy<Type>::algorythm()
 		for (std::size_t i = 1; i < singletoneSize; ++i) {
 			if (*(*singletone)[i - 1] > *(*singletone)[i])
 			{
-				AlgorythmStrategy<Type>::Swap((*singletone)[0], i - 1, i);
+				AlgorythmStrategy<Type>::swap((*singletone)[0], i - 1, i);
 				swapped = true;
 
 				std::cout << "Valued iteration   : ";
