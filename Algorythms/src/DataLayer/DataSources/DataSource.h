@@ -3,7 +3,6 @@
 #include <memory>
 #include <iostream>
 #include <initializer_list>
-#include "../Iterators/Iterator.h"
 
 template<typename Type> class Iterator;
 
@@ -13,12 +12,6 @@ class DataSource
 public:
 	DataSource() = default;
 	virtual ~DataSource() = default;
-
-	std::shared_ptr<Iterator<Type>> _iterator = nullptr;
-
-	std::shared_ptr<Iterator<Type>> GetIterator() { return _iterator; }
-
-	virtual void SetIterator(std::shared_ptr<Iterator<Type>> iterator) { _iterator = iterator; }
 
 	virtual Type* operator[] (const std::size_t index) { 
 		return nullptr; 

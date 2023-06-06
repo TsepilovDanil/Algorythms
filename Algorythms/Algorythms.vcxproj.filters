@@ -87,9 +87,6 @@
     <Filter Include="Исходные файлы\DataLayer">
       <UniqueIdentifier>{fcbe73b4-372c-4e40-858b-78486ca1e9c1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\DataLayer\Iterators">
-      <UniqueIdentifier>{2792a9d5-61ed-4b84-bd59-7ff508199f2f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\DataLayer\Singletones">
       <UniqueIdentifier>{82eb2499-4b7a-47b8-bfe8-252e1608098d}</UniqueIdentifier>
     </Filter>
@@ -101,9 +98,6 @@
     </Filter>
     <Filter Include="Исходные файлы\DataLayer\DataSources\ArraySource">
       <UniqueIdentifier>{4a7b31ec-e76f-4a3c-a4e2-904bb3ebe0d8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\DataLayer\Iterators\ForwardIterator">
-      <UniqueIdentifier>{a6637fa0-79f7-4afe-a8ef-360834a1dfb7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -134,17 +128,11 @@
     <ClCompile Include="src\DataLayer\Singletones\ArraySingleton\ArraySingleton.cpp">
       <Filter>Исходные файлы\DataLayer\Singletones\ArraySingletones</Filter>
     </ClCompile>
-    <ClCompile Include="src\DataLayer\Iterators\Iterator.cpp">
-      <Filter>Исходные файлы\DataLayer\Iterators</Filter>
-    </ClCompile>
     <ClCompile Include="src\DataLayer\DataSources\DataSource.cpp">
       <Filter>Исходные файлы\DataLayer\DataSources</Filter>
     </ClCompile>
     <ClCompile Include="src\DataLayer\DataSources\ArraySource\ArraySource.cpp">
       <Filter>Исходные файлы\DataLayer\DataSources\ArraySource</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DataLayer\Iterators\ForwardIterator\ForwardIterator.cpp">
-      <Filter>Исходные файлы\DataLayer\Iterators\ForwardIterator</Filter>
     </ClCompile>
     <ClCompile Include="src\BusinessLayer\Compositions\Sorting\InsertionSort\InsertionSortComposition.cpp">
       <Filter>Исходные файлы\BusinessLayer\Compositions\Sorting\InsertionSort</Filter>
@@ -208,17 +196,11 @@
     <ClInclude Include="src\DataLayer\Singletones\ArraySingleton\ArraySingleton.h">
       <Filter>Исходные файлы\DataLayer\Singletones\ArraySingletones</Filter>
     </ClInclude>
-    <ClInclude Include="src\DataLayer\Iterators\Iterator.h">
-      <Filter>Исходные файлы\DataLayer\Iterators</Filter>
-    </ClInclude>
     <ClInclude Include="src\DataLayer\DataSources\DataSource.h">
       <Filter>Исходные файлы\DataLayer\DataSources</Filter>
     </ClInclude>
     <ClInclude Include="src\DataLayer\DataSources\ArraySource\ArraySource.h">
       <Filter>Исходные файлы\DataLayer\DataSources\ArraySource</Filter>
-    </ClInclude>
-    <ClInclude Include="src\DataLayer\Iterators\ForwardIterator\ForwardIterator.h">
-      <Filter>Исходные файлы\DataLayer\Iterators\ForwardIterator</Filter>
     </ClInclude>
     <ClInclude Include="src\BusinessLayer\Compositions\Sorting\InsertionSort\InsertionSortComposition.h">
       <Filter>Исходные файлы\BusinessLayer\Compositions\Sorting\InsertionSort</Filter>

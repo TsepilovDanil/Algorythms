@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../../Iterators/ForwardIterator/ForwardIterator.h"
 #include "../DataSource.h"
 
 template<typename Type>
@@ -13,8 +12,7 @@ public:
 
 	ArraySource(std::size_t sizeOfSource);
 	ArraySource(std::initializer_list<Type> && initializer);
-
-	void SetIterator(std::shared_ptr<Iterator<Type>> iterator) override { DataSource<Type>::_iterator = iterator; }
+	
 	Type* operator[] (const std::size_t index) override;
 
 	std::shared_ptr <Type> _source = nullptr;

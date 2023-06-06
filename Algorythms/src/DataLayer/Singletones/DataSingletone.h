@@ -4,7 +4,6 @@
 #include <set>
 #include <map>
 #include <string>
-#include "../Iterators/Iterator.h"
 #include "ArraySingleton/ArraySingleton.h"
 
 template <typename Type> class ArraySingleton;
@@ -20,9 +19,7 @@ public:
 
 	virtual ~DataSingleton() = default;
 
-	virtual Type* operator[] (const std::size_t index) { 
-		return nullptr;
-	}
+	virtual Type* operator[] (const std::size_t index) {return nullptr;}
 
 	virtual std::shared_ptr<DataSingleton<Type>> Instance();
 	bool GetSingletoneSize(const std::string& singletonName, std::size_t &size);

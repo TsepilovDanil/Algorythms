@@ -6,7 +6,6 @@
 #include "../DataSingletone.h"
 #include "../../DataSources/DataSource.h"
 #include "../../DataSources/ArraySource/ArraySource.h"
-#include "../../Iterators/ForwardIterator/ForwardIterator.h"
 
 template <typename Type> class DataSingleton;
 template <typename Type> class DataSource;
@@ -29,9 +28,7 @@ public:
 
 	std::shared_ptr<DataSingleton<Type>> Instance() override;
 
-	Type* operator[] (const std::size_t index) override {
-		return (*_arraySource)[index]; 
-	}
+	Type* operator[] (const std::size_t index) override { return (*_arraySource)[index]; }
 
 };
 

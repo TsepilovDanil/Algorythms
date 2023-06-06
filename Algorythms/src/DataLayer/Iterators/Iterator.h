@@ -13,10 +13,13 @@ public:
 	Iterator(std::shared_ptr<DataSource<Type>> dataSource) : _DataSource(dataSource) {};
 	virtual ~Iterator() = default;
 
+	void SetDataSource(std::shared_ptr<DataSource<Type>> dataSource) { _DataSource = dataSource; };
+	
 	virtual void First() {};
 	virtual void Next() {};
 	virtual bool IsDone() { return false; };
 	virtual Type& CurrentItem() { return nullptr; };
+
 
 	std::shared_ptr<DataSource<Type>> _DataSource = nullptr;
 
