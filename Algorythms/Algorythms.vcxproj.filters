@@ -104,72 +104,6 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="src\BusinessLayer\AlgorythmsStrategies\AlgorythmStrategy.cpp">
-      <Filter>Исходные файлы\BusinessLayer\AlgorythmsStrategies</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BusinessLayer\AlgorythmsStrategies\Sorting\BubbleSort\BubbleSortStrategy.cpp">
-      <Filter>Исходные файлы\BusinessLayer\AlgorythmsStrategies\Sorting\BubbleSort</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BusinessLayer\Compositions\Composition.cpp">
-      <Filter>Исходные файлы\BusinessLayer\Compositions</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BusinessLayer\Compositions\Sorting\BubbleSort\BubbleSortComposition.cpp">
-      <Filter>Исходные файлы\BusinessLayer\Compositions\Sorting\BubbleSort</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BusinessLayer\CompositionsFabrics\CompositionsFabric.cpp">
-      <Filter>Исходные файлы\BusinessLayer\CompositionsFabrics</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BusinessLayer\CompositionsFabrics\Sorting\BubbleSort\BubbleSortFabric.cpp">
-      <Filter>Исходные файлы\BusinessLayer\CompositionsFabrics\Sorting\BubbleSort</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DataLayer\Singletones\DataSingletone.cpp">
-      <Filter>Исходные файлы\DataLayer\Singletones</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DataLayer\Singletones\ArraySingleton\ArraySingleton.cpp">
-      <Filter>Исходные файлы\DataLayer\Singletones\ArraySingletones</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DataLayer\DataSources\DataSource.cpp">
-      <Filter>Исходные файлы\DataLayer\DataSources</Filter>
-    </ClCompile>
-    <ClCompile Include="src\DataLayer\DataSources\ArraySource\ArraySource.cpp">
-      <Filter>Исходные файлы\DataLayer\DataSources\ArraySource</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BusinessLayer\Compositions\Sorting\InsertionSort\InsertionSortComposition.cpp">
-      <Filter>Исходные файлы\BusinessLayer\Compositions\Sorting\InsertionSort</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BusinessLayer\Compositions\Sorting\MergeSort\MergeSortComposition.cpp">
-      <Filter>Исходные файлы\BusinessLayer\Compositions\Sorting\MergeSort</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BusinessLayer\Compositions\Sorting\QuickSort\QuickSortComposition.cpp">
-      <Filter>Исходные файлы\BusinessLayer\Compositions\Sorting\QuickSort</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BusinessLayer\Compositions\Sorting\SelectionSort\SelectionSortComposition.cpp">
-      <Filter>Исходные файлы\BusinessLayer\Compositions\Sorting\SelectionSort</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BusinessLayer\AlgorythmsStrategies\Sorting\InsertionSort\InsertionSortStrategy.cpp">
-      <Filter>Исходные файлы\BusinessLayer\AlgorythmsStrategies\Sorting\InsertionSort</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BusinessLayer\AlgorythmsStrategies\Sorting\MergeSort\MergeSortStrategy.cpp">
-      <Filter>Исходные файлы\BusinessLayer\AlgorythmsStrategies\Sorting\MergeSort</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BusinessLayer\AlgorythmsStrategies\Sorting\QuickSort\QuickSortStrategy.cpp">
-      <Filter>Исходные файлы\BusinessLayer\AlgorythmsStrategies\Sorting\QuickSort</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BusinessLayer\AlgorythmsStrategies\Sorting\SelectionSort\SelectionSortStrategy.cpp">
-      <Filter>Исходные файлы\BusinessLayer\AlgorythmsStrategies\Sorting\SelectionSort</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BusinessLayer\CompositionsFabrics\Sorting\InsertionSort\InsertionSortFabric.cpp">
-      <Filter>Исходные файлы\BusinessLayer\CompositionsFabrics\Sorting\InsertionSort</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BusinessLayer\CompositionsFabrics\Sorting\MergeSort\MergeSortFabric.cpp">
-      <Filter>Исходные файлы\BusinessLayer\CompositionsFabrics\Sorting\MergeSort</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BusinessLayer\CompositionsFabrics\Sorting\QuickSort\QuickSortFabric.cpp">
-      <Filter>Исходные файлы\BusinessLayer\CompositionsFabrics\Sorting\QuickSort</Filter>
-    </ClCompile>
-    <ClCompile Include="src\BusinessLayer\CompositionsFabrics\Sorting\SelectionSort\SelectionSortFabric.cpp">
-      <Filter>Исходные файлы\BusinessLayer\CompositionsFabrics\Sorting\SelectionSort</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\BusinessLayer\AlgorythmsStrategies\AlgorythmStrategy.h">
@@ -241,5 +175,8 @@
     <ClInclude Include="src\main.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
   </ItemGroup>
 </Project>

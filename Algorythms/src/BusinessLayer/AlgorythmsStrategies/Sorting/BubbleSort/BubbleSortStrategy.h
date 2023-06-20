@@ -2,11 +2,14 @@
 #include "../../AlgorythmStrategy.h"
 #include "../../../compositions/Composition.h"
 #include "../../../../DataLayer/Singletones/ArraySingleton/ArraySingleton.h"
+#include "../../../../DataLayer/DataSources/ArraySource/ArraySource.h"
+
 
 template<typename Type> class Composition;
 template<typename Type> class AlgorythmStrategy;
 template<typename Type> class DataSingleton;
 template<typename Type> class ArraySingleton;
+template<typename Type> class ArraySource;
 
 template<typename Type>
 class BubbleSortStrategy : public AlgorythmStrategy<Type>
@@ -49,9 +52,12 @@ void BubbleSortStrategy<Type>::algorythm()
 	if (!singletone || !singletone->GetSingletoneSize(ArraySingleton<Type>::_singletonName, singletoneSize))
 		return;
 
+	ArraySource<Type> workArray((*singletone)[0], singletoneSize);
+	ArraySource<Type> copyArray(workArray);
+
 	std::cout << "Original array     : ";
-	for (int i = 0; i < singletoneSize; ++i) {
-		std::cout << *(*singletone)[i];
+	for (int i = 0; i < workArray.GetSize(); ++i) {
+		std::cout << *(workArray)[i];
 	}
 	std::cout << std::endl;
 	
@@ -60,16 +66,16 @@ void BubbleSortStrategy<Type>::algorythm()
 	do
 	{
 		swapped = false;
-		for (std::size_t i = 1; i < singletoneSize; ++i) {
-			if (*(*singletone)[i - 1] > *(*singletone)[i])
+		for (std::size_t i = 1; i < workArray.GetSize(); ++i) {
+			if (*(workArray)[i - 1] > *(workArray)[i])
 			{
-				AlgorythmStrategy<Type>::swap((*singletone)[0], i - 1, i);
+				AlgorythmStrategy<Type>::swap((workArray)[0], i - 1, i);
 				swapped = true;
 
 				std::cout << "Valued iteration   : ";
 				
-				for (int i = 0; i < singletoneSize; ++i) {
-					std::cout << *(*singletone)[i];
+				for (int i = 0; i < workArray.GetSize(); ++i) {
+					std::cout << *(workArray)[i];
 				}
 				std::cout << std::endl;
 			}
@@ -82,16 +88,14 @@ void BubbleSortStrategy<Type>::algorythm()
 		if (swapped)
 		{
 			std::cout << "Outer iteration    :*";
-			for (int i = 0; i < singletoneSize; ++i) {
-				std::cout << *(*singletone)[i];
+			for (int i = 0; i < workArray.GetSize(); ++i) {
+				std::cout << *(workArray)[i];
 			}
 			std::cout << "*" << std::endl;
 		}
 		
 
 	} while (swapped != false);
-
-	
 
 }
 

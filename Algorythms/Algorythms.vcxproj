@@ -139,28 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\BusinessLayer\AlgorythmsStrategies\AlgorythmStrategy.cpp" />
-    <ClCompile Include="src\BusinessLayer\AlgorythmsStrategies\Sorting\BubbleSort\BubbleSortStrategy.cpp" />
-    <ClCompile Include="src\BusinessLayer\AlgorythmsStrategies\Sorting\InsertionSort\InsertionSortStrategy.cpp" />
-    <ClCompile Include="src\BusinessLayer\AlgorythmsStrategies\Sorting\MergeSort\MergeSortStrategy.cpp" />
-    <ClCompile Include="src\BusinessLayer\AlgorythmsStrategies\Sorting\QuickSort\QuickSortStrategy.cpp" />
-    <ClCompile Include="src\BusinessLayer\AlgorythmsStrategies\Sorting\SelectionSort\SelectionSortStrategy.cpp" />
-    <ClCompile Include="src\BusinessLayer\CompositionsFabrics\CompositionsFabric.cpp" />
-    <ClCompile Include="src\BusinessLayer\CompositionsFabrics\Sorting\BubbleSort\BubbleSortFabric.cpp" />
-    <ClCompile Include="src\BusinessLayer\CompositionsFabrics\Sorting\InsertionSort\InsertionSortFabric.cpp" />
-    <ClCompile Include="src\BusinessLayer\CompositionsFabrics\Sorting\MergeSort\MergeSortFabric.cpp" />
-    <ClCompile Include="src\BusinessLayer\CompositionsFabrics\Sorting\QuickSort\QuickSortFabric.cpp" />
-    <ClCompile Include="src\BusinessLayer\CompositionsFabrics\Sorting\SelectionSort\SelectionSortFabric.cpp" />
-    <ClCompile Include="src\BusinessLayer\Compositions\Composition.cpp" />
-    <ClCompile Include="src\BusinessLayer\Compositions\Sorting\BubbleSort\BubbleSortComposition.cpp" />
-    <ClCompile Include="src\BusinessLayer\Compositions\Sorting\InsertionSort\InsertionSortComposition.cpp" />
-    <ClCompile Include="src\BusinessLayer\Compositions\Sorting\MergeSort\MergeSortComposition.cpp" />
-    <ClCompile Include="src\BusinessLayer\Compositions\Sorting\QuickSort\QuickSortComposition.cpp" />
-    <ClCompile Include="src\BusinessLayer\Compositions\Sorting\SelectionSort\SelectionSortComposition.cpp" />
-    <ClCompile Include="src\DataLayer\DataSources\ArraySource\ArraySource.cpp" />
-    <ClCompile Include="src\DataLayer\DataSources\DataSource.cpp" />
-    <ClCompile Include="src\DataLayer\Singletones\ArraySingleton\ArraySingleton.cpp" />
-    <ClCompile Include="src\DataLayer\Singletones\DataSingletone.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -187,6 +165,9 @@
     <ClInclude Include="src\DataLayer\Singletones\ArraySingleton\ArraySingleton.h" />
     <ClInclude Include="src\DataLayer\Singletones\DataSingletone.h" />
     <ClInclude Include="src\main.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

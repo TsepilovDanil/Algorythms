@@ -10,7 +10,7 @@ public:
 
 	ArraySource() = default;
 
-	ArraySource(std::size_t sizeOfSource);
+	ArraySource(Type* item, std::size_t size);
 	ArraySource(std::initializer_list<Type> && initializer);
 	
 	Type* operator[] (const std::size_t index) override;
@@ -24,6 +24,8 @@ Type* ArraySource<Type>::operator[] (std::size_t index)
 {
 	try
 	{		
+		auto item = &(&*_source)[index];
+
 		return &(&*_source)[index];
 	}
 	catch (const std::exception& exception)
@@ -34,8 +36,19 @@ Type* ArraySource<Type>::operator[] (std::size_t index)
 }
 
 template<typename Type>
-ArraySource<Type>::ArraySource(std::size_t sizeOfSource)
+ArraySource<Type>::ArraySource(Type *initializationMemory, std::size_t size)
 {
+	if (!size)
+		return;
+
+	_source = std::shared_ptr<Type>(new Type[size], [](Type* p) {delete[] p; });
+
+	for (std::size_t indexInArray = 0; indexInArray < size; ++indexInArray)
+	{
+		(&*_source)[indexInArray] = initializationMemory[indexInArray];
+	}
+
+	DataSource<Type>::_sizeOfSource = size;
 
 }
 
@@ -55,5 +68,7 @@ ArraySource<Type>::ArraySource(std::initializer_list<Type> &&initializer)
 	{
 		(&*_source)[sourceIndex++] = *initializerIterator;
 	}
+
+	DataSource<Type>::_sizeOfSource = initializer.size();
 }
 

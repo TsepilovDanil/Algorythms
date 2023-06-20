@@ -13,6 +13,8 @@ public:
 	DataSource() = default;
 	virtual ~DataSource() = default;
 
+	std::size_t GetSize() { return _sizeOfSource; }
+
 	virtual Type* operator[] (const std::size_t index) { 
 		return nullptr; 
 	}
