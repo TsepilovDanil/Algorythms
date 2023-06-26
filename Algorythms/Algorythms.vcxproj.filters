@@ -33,14 +33,8 @@
     <Filter Include="Исходные файлы\BusinessLayer\AlgorythmsStrategies\Sorting\SelectionSort">
       <UniqueIdentifier>{8db6f96f-340c-43b2-b3b9-24b66ab56e39}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Исходные файлы\BusinessLayer\AlgorythmsStrategies\Searching">
-      <UniqueIdentifier>{a161f43f-6406-49a9-967d-37aba4d9eb4f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Исходные файлы\BusinessLayer\Compositions">
       <UniqueIdentifier>{aaf6470d-5ff4-49a1-aa06-8460cfe6618e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\BusinessLayer\Compositions\Searching">
-      <UniqueIdentifier>{117b58d7-06b5-4ade-b02b-b41f796dab58}</UniqueIdentifier>
     </Filter>
     <Filter Include="Исходные файлы\BusinessLayer\Compositions\Sorting">
       <UniqueIdentifier>{74cc3b64-f860-43de-9ee3-89094ab2107f}</UniqueIdentifier>
@@ -80,9 +74,6 @@
     </Filter>
     <Filter Include="Исходные файлы\BusinessLayer\CompositionsFabrics\Sorting\QuickSort">
       <UniqueIdentifier>{89f51ac9-e999-4cc1-83d1-cfca29c03291}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Исходные файлы\BusinessLayer\CompositionsFabrics\Searching">
-      <UniqueIdentifier>{59e3e7e7-41b3-4c97-b194-ab24126b034a}</UniqueIdentifier>
     </Filter>
     <Filter Include="Исходные файлы\DataLayer">
       <UniqueIdentifier>{fcbe73b4-372c-4e40-858b-78486ca1e9c1}</UniqueIdentifier>
