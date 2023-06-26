@@ -3,7 +3,7 @@ project(algorythms)
 
 add_subdirectory(testDir)
 
-add_executable(executable src/main.cpp)
+add_executable(executable ..Algorythms/src/main.cpp)
 
 set_target_properties(
 	executable PROPERTIES
