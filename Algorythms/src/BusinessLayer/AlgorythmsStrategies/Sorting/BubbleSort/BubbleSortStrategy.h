@@ -16,8 +16,9 @@ class BubbleSortStrategy : public AlgorythmStrategy<Type>
 {
 public:
 
+	
 	BubbleSortStrategy() = default;
-	BubbleSortStrategy(std::shared_ptr<Composition<Type>> composition) : AlgorythmStrategy(composition) {};
+	BubbleSortStrategy(std::shared_ptr<Composition<Type>> composition) : AlgorythmStrategy<Type>(composition) {};
 	~BubbleSortStrategy() = default;
 
 	void StartWork() override;
