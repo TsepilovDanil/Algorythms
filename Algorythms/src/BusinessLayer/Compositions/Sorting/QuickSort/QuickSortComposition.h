@@ -1,5 +1,5 @@
 #pragma once
-#include "../../../compositions/Composition.h"
+#include "../../../Compositions/Composition.h"
 #include "../../../AlgorythmsStrategies/Sorting/QuickSort/QuickSortStrategy.h"
 
 template<typename Type>

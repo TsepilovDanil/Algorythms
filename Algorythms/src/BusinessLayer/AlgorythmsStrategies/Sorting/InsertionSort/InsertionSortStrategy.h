@@ -1,6 +1,6 @@
 #pragma once
 #include "../../AlgorythmStrategy.h"
-#include "../../../compositions/Composition.h"
+#include "../../../Compositions/Composition.h"
 #include "../../../../DataLayer/Singletones/ArraySingleton/ArraySingleton.h"
 
 template<typename Type> class Composition;
@@ -14,7 +14,7 @@ class InsertionSortStrategy : public AlgorythmStrategy<Type>
 public:
 
 	InsertionSortStrategy() = default;
-	InsertionSortStrategy(std::shared_ptr<Composition<Type>> composition) : AlgorythmStrategy(composition) {};
+	//InsertionSortStrategy(std::shared_ptr<Composition<Type>> composition) : AlgorythmStrategy(composition) {};
 	~InsertionSortStrategy() = default;
 
 	void StartWork() override;

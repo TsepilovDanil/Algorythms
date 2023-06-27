@@ -1,6 +1,6 @@
 #pragma once
 #include "../../AlgorythmStrategy.h"
-#include "../../../compositions/Composition.h"
+#include "../../../Compositions/Composition.h"
 #include "../../../../DataLayer/Singletones/ArraySingleton/ArraySingleton.h"
 #include "../../../../DataLayer/DataSources/ArraySource/ArraySource.h"
 

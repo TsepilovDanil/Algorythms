@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <array>
-#include "../compositions/Composition.h"
+#include "../Compositions/Composition.h"
 
 template<typename Type>
 class CompositionsFabric
