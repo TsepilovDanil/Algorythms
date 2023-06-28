@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer">
+      <UniqueIdentifier>{95cca329-41b7-4279-ad63-cf7ff232c4d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\AlgorythmsStrategies">
+      <UniqueIdentifier>{02ebea1b-1c35-4842-8cdd-570d56fc00f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\AlgorythmsStrategies\Sorting">
+      <UniqueIdentifier>{82276351-6858-4bec-9e4a-8b03439cab24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\AlgorythmsStrategies\Sorting\BubbleSort">
+      <UniqueIdentifier>{9fbb659f-6c8d-489a-8939-39ce3db403c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\AlgorythmsStrategies\Sorting\InsertionSort">
+      <UniqueIdentifier>{bb75442a-3ec2-4c10-bf72-9321734eab52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\AlgorythmsStrategies\Sorting\MergeSort">
+      <UniqueIdentifier>{17ed037b-0ead-4683-bd29-62b02760a6d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\AlgorythmsStrategies\Sorting\QuickSort">
+      <UniqueIdentifier>{186ba6a9-482c-4466-ae63-2799b3aea44c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\AlgorythmsStrategies\Sorting\SelectionSort">
+      <UniqueIdentifier>{8db6f96f-340c-43b2-b3b9-24b66ab56e39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\Compositions">
+      <UniqueIdentifier>{aaf6470d-5ff4-49a1-aa06-8460cfe6618e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\Compositions\Sorting">
+      <UniqueIdentifier>{74cc3b64-f860-43de-9ee3-89094ab2107f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\Compositions\Sorting\BubbleSort">
+      <UniqueIdentifier>{af988bef-24f0-46e8-94ce-d8a4828d9784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\Compositions\Sorting\InsertionSort">
+      <UniqueIdentifier>{827b6ed0-24eb-4ccb-a0c0-fb7422abb3e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\Compositions\Sorting\MergeSort">
+      <UniqueIdentifier>{79111d6b-0772-47c7-9d8c-0dd5828def98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\Compositions\Sorting\QuickSort">
+      <UniqueIdentifier>{798dbc20-79fa-4c10-8ec7-78739fd8f4ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\Compositions\Sorting\SelectionSort">
+      <UniqueIdentifier>{14a26b89-e4dd-494f-8e72-919c11d3f4e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\CompositionsFabrics">
+      <UniqueIdentifier>{f4c5cad0-ab46-46ac-9f02-cfca2d0abdec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\CompositionsFabrics\Sorting">
+      <UniqueIdentifier>{d886bbde-bf51-45aa-b102-c1a643d0c3ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\CompositionsFabrics\Sorting\BubbleSort">
+      <UniqueIdentifier>{c985fcd7-8a41-4210-a0fb-e76bf8ede3d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\CompositionsFabrics\Sorting\InsertionSort">
+      <UniqueIdentifier>{315eba11-dde1-4e40-ba47-ce0f3b5986fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\CompositionsFabrics\Sorting\MergeSort">
+      <UniqueIdentifier>{23905791-cced-494c-ac32-8a755e002337}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\CompositionsFabrics\Sorting\SelectionSort">
+      <UniqueIdentifier>{0cc5c73f-78b5-43ee-9612-844a6e320c6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\BusinessLayer\CompositionsFabrics\Sorting\QuickSort">
+      <UniqueIdentifier>{89f51ac9-e999-4cc1-83d1-cfca29c03291}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\DataLayer">
+      <UniqueIdentifier>{fcbe73b4-372c-4e40-858b-78486ca1e9c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\DataLayer\Singletones">
+      <UniqueIdentifier>{82eb2499-4b7a-47b8-bfe8-252e1608098d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\DataLayer\Singletones\ArraySingletones">
+      <UniqueIdentifier>{52923e2a-ce4c-4a33-9391-728d0d79147d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\DataLayer\DataSources">
+      <UniqueIdentifier>{8f0e6de6-1540-4de8-8000-38a83aac46aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\DataLayer\DataSources\ArraySource">
+      <UniqueIdentifier>{4a7b31ec-e76f-4a3c-a4e2-904bb3ebe0d8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\BusinessLayer\AlgorythmsStrategies\AlgorythmStrategy.h">
+      <Filter>Исходные файлы\BusinessLayer\AlgorythmsStrategies</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BusinessLayer\AlgorythmsStrategies\Sorting\BubbleSort\BubbleSortStrategy.h">
+      <Filter>Исходные файлы\BusinessLayer\AlgorythmsStrategies\Sorting\BubbleSort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BusinessLayer\Compositions\Composition.h">
+      <Filter>Исходные файлы\BusinessLayer\Compositions</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BusinessLayer\Compositions\Sorting\BubbleSort\BubbleSortComposition.h">
+      <Filter>Исходные файлы\BusinessLayer\Compositions\Sorting\BubbleSort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BusinessLayer\CompositionsFabrics\CompositionsFabric.h">
+      <Filter>Исходные файлы\BusinessLayer\CompositionsFabrics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BusinessLayer\CompositionsFabrics\Sorting\BubbleSort\BubbleSortFabric.h">
+      <Filter>Исходные файлы\BusinessLayer\CompositionsFabrics\Sorting\BubbleSort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DataLayer\Singletones\DataSingletone.h">
+      <Filter>Исходные файлы\DataLayer\Singletones</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DataLayer\Singletones\ArraySingleton\ArraySingleton.h">
+      <Filter>Исходные файлы\DataLayer\Singletones\ArraySingletones</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DataLayer\DataSources\DataSource.h">
+      <Filter>Исходные файлы\DataLayer\DataSources</Filter>
+    </ClInclude>
+    <ClInclude Include="src\DataLayer\DataSources\ArraySource\ArraySource.h">
+      <Filter>Исходные файлы\DataLayer\DataSources\ArraySource</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BusinessLayer\Compositions\Sorting\InsertionSort\InsertionSortComposition.h">
+      <Filter>Исходные файлы\BusinessLayer\Compositions\Sorting\InsertionSort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BusinessLayer\Compositions\Sorting\MergeSort\MergeSortComposition.h">
+      <Filter>Исходные файлы\BusinessLayer\Compositions\Sorting\MergeSort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BusinessLayer\Compositions\Sorting\QuickSort\QuickSortComposition.h">
+      <Filter>Исходные файлы\BusinessLayer\Compositions\Sorting\QuickSort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BusinessLayer\Compositions\Sorting\SelectionSort\SelectionSortComposition.h">
+      <Filter>Исходные файлы\BusinessLayer\Compositions\Sorting\SelectionSort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BusinessLayer\AlgorythmsStrategies\Sorting\InsertionSort\InsertionSortStrategy.h">
+      <Filter>Исходные файлы\BusinessLayer\AlgorythmsStrategies\Sorting\InsertionSort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BusinessLayer\AlgorythmsStrategies\Sorting\MergeSort\MergeSortStrategy.h">
+      <Filter>Исходные файлы\BusinessLayer\AlgorythmsStrategies\Sorting\MergeSort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BusinessLayer\AlgorythmsStrategies\Sorting\QuickSort\QuickSortStrategy.h">
+      <Filter>Исходные файлы\BusinessLayer\AlgorythmsStrategies\Sorting\QuickSort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BusinessLayer\AlgorythmsStrategies\Sorting\SelectionSort\SelectionSortStrategy.h">
+      <Filter>Исходные файлы\BusinessLayer\AlgorythmsStrategies\Sorting\SelectionSort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BusinessLayer\CompositionsFabrics\Sorting\InsertionSort\InsertionSortFabric.h">
+      <Filter>Исходные файлы\BusinessLayer\CompositionsFabrics\Sorting\InsertionSort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BusinessLayer\CompositionsFabrics\Sorting\MergeSort\MergeSortFabric.h">
+      <Filter>Исходные файлы\BusinessLayer\CompositionsFabrics\Sorting\MergeSort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BusinessLayer\CompositionsFabrics\Sorting\QuickSort\QuickSortFabric.h">
+      <Filter>Исходные файлы\BusinessLayer\CompositionsFabrics\Sorting\QuickSort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\BusinessLayer\CompositionsFabrics\Sorting\SelectionSort\SelectionSortFabric.h">
+      <Filter>Исходные файлы\BusinessLayer\CompositionsFabrics\Sorting\SelectionSort</Filter>
+    </ClInclude>
+    <ClInclude Include="src\main.h">
+      <Filter>Исходные файлы</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+</Project>
