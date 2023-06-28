@@ -8,8 +8,6 @@ int main()
     if (!list.size())
         return 0;
 
-    
-
     auto bubbleSortFabric = std::make_shared<BubbleSortFabric<std::remove_reference<decltype(*const_cast<int*>(list.begin()))>::type>>(std::forward<std::initializer_list<std::remove_reference<decltype(*const_cast<int*>(list.begin()))>::type>>(list));
     bubbleSortFabric->GetComposition()->StartAlgorythm();
 
